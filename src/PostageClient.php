@@ -19,7 +19,7 @@ use League\CLImate\CLImate;
 
 date_default_timezone_set('Europe/London');
 
-class Postage
+class PostageClient
 {
     public $orders;
 

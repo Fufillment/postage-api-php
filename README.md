@@ -4,25 +4,17 @@ A PHP library that wraps Fulfillment's Postage API for easy use
 ## Example
 
 ```php
-use Fulfillment\Postage;
-use Fulfillment\OMS\Models\Request;
+use Fulfillment\Postage\Postage;
+use Fulfillment\Postage\Models\Request;
 
-$apiWrapper = new OMS(__DIR__); //instantiate OMS with a configuration file or array of settings
+$apiWrapper = new PostageClient(__DIR__); //instantiate Postage with a configuration file or array of settings
 
-$newOrder = new Order($orderData); //create a new Request\Order
-
-/*
- * 1. Validate the order
- * 2. Make a POST request to /orders
- * 3. Parse the returned api response into a new Response\Order object
- */
-$createdOrder = $apiWrapper->orders->createOrder($newOrder);
 ```
 
 ## Installation
 
 ```
-composer require fulfillment/oms-api
+composer require fulfillment/postage-api
 ```
 
 ## Configuration
@@ -47,7 +39,7 @@ There are two ways to configure OMS API
 Use a `.env` file compatible with fantastic [phpdotenv](https://github.com/vlucas/phpdotenv) library. Simply specify the absolute path to the folder containing your `.env` file as an argument in the OMS constructor.
 
 ```php
-$apiWrapper = new OMS('absolute/path/to/a/folder')
+$apiWrapper = new PostageClient('absolute/path/to/a/folder')
 ```
 
 An example file called `.env.example` can be found in the root directory.
@@ -57,7 +49,7 @@ An example file called `.env.example` can be found in the root directory.
 Alternatively, create an array with key/values matching the above specified configuration and pass it as an argument in the OMS constructor.
 
 ```php
-$apiWrapper = new OMS($yourConfigurationArray)
+$apiWrapper = new PostageClient($yourConfigurationArray)
 ```
 
 ## Usage
@@ -68,22 +60,13 @@ Models (plain PHP classes) are used by the wrapper to facilitate easy building, 
 
 **Request Models**
 
-Found at `Fulfillment\OMS\Models\Request` these are the models that are used when making any request that requires data (such as a POST or PUT request). Currenty you will need to use the implemented models to make these type of requests. They differ slightly from the other type (`Response` model) because they do not require as much data as is returned from the api.
+Found at `Fulfillment\Postage\Models\Request` these are the models that are used when making any request that requires data (such as a POST or PUT request). Currenty you will need to use the implemented models to make these type of requests. They differ slightly from the other type (`Response` model) because they do not require as much data as is returned from the api.
 
-Example
-```php
-$newOrder = new Order($myOrderData);
-$order = $apiWrapper->orders->createOrder($newOrder);
-```
 
 **Response Models**
 
-Found at `Fulfillment\OMS\Models\Response` these are the models that response json is parsed in to. They inherit from `Request` models and so can be reused to make requests.
+Found at `Fulfillment\Postage\Models\Response` these are the models that response json is parsed in to. They inherit from `Request` models and so can be reused to make requests.
 
-Example
-```php
-$returnedOrder = $apiWrapper->orders->getOrder($orderId);
-```
 
 ### Model Validation
 
