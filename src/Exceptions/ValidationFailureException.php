@@ -9,22 +9,27 @@
 namespace Fulfillment\Postage\Exceptions;
 
 
-
-class ValidationFailureException extends \Exception {
+class ValidationFailureException extends \Exception
+{
 
     public $validationErrors;
     public $context;
 
-   public function __construct($message = null, $errors = array(), \Exception $previous = null) {
+    public function __construct($message = null, $errors = array(), \Exception $previous = null)
+    {
+        $this->validationErrors = $errors;
 
+        $message = $message ?: 'The requested action failed validation.';
 
-       $this->validationErrors = $errors;
-           $message = 'The requested action failed validation. Failed tests: '. PHP_EOL;
-           foreach($this->validationErrors as $key => $error){
-               $message.= '['.$key.'] '. $error . PHP_EOL;
-           }
+        if(!empty($this->validationErrors)){
+            $message .= PHP_EOL;
+            $message .= ' Failed tests: ' . PHP_EOL;
+        }
+        foreach ($this->validationErrors as $key => $error) {
+            $message .= '[' . $key . '] ' . $error . PHP_EOL;
+        }
 
-       parent::__construct($message, $previous);
-   }
+        parent::__construct($message, $previous);
+    }
 
 }
