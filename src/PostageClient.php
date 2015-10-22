@@ -72,7 +72,7 @@ class PostageClient
             'accessToken' => $accessToken,
             'endpoint' => $endpoint,
             'authEndpoint' => $authEndpoint,
-            'scope' => 'oms'
+            'scope' => 'postage'
         ]);
 
         $apiClient = new Api($apiConfig);

@@ -26,7 +26,7 @@ Configuration needed is simple:
 * **CLIENT_ID** - Client Id for your merchant
 * **CLIENT_SECRET** - Client secret for your merchant
 * **ACCESS_TOKEN** - If already created, an access token for your merchant
-* **API_ENDPOINT** - The end point for the fulfillment api services you are using (https://api.fulfillment.com)
+* **API_ENDPOINT** - The end point for the fulfillment api services you are using (https://postage.fulfillment.com)
 
 Optional Configurations:
 
