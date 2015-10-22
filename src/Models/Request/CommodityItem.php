@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mduncan
- * Date: 10/22/15
- * Time: 4:36 PM
- */
 
 namespace Fulfillment\Postage\Models\Request;
 
