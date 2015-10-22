@@ -6,7 +6,7 @@
  * Time: 1:25 PM
  */
 
-namespace Fulfillment\OMS\Exceptions;
+namespace Fulfillment\Postage\Exceptions;
 
 
 
