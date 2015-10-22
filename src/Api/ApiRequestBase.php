@@ -1,26 +1,20 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mduncan
- * Date: 8/13/15
- * Time: 3:33 PM
- */
 
-namespace Fulfillment\OMS\Api;
+namespace Fulfillment\Postage\Api;
 
 use Fulfillment\Api\Api;
-use Fulfillment\OMS\Exceptions\UnauthorizedMerchantException;
-use GuzzleHttp;
-use League\CLImate\CLImate;
+use Fulfillment\Postage\Exceptions\ValidationFailureException;
+use Fulfillment\Postage\Models\Contracts\Validatable;
 
 class ApiRequestBase
 {
     protected $apiClient;
     protected $jsonMapper;
     protected $jsonOnly;
+    protected $validateRequests;
 
     /**
-     * @param Api $apiClient
+     * @param Api  $apiClient
      * @param bool $jsonOnly
      * @param bool $validateRequests Default behavior for validating POST and PUT requests.  Will validate objects before making the request
      */
@@ -30,5 +24,36 @@ class ApiRequestBase
         $this->apiClient        = $apiClient;
         $this->jsonMapper       = new \JsonMapper();
         $this->validateRequests = $validateRequests;
+    }
+
+    public function setValidateRequests($bool)
+    {
+        $this->validateRequests = $bool;
+    }
+
+    public function isValidatingRequests()
+    {
+        return $this->validateRequests;
+    }
+
+    protected function shouldValidateRequest($individualRequestValidation)
+    {
+        if ($individualRequestValidation) {
+            return true;
+        } elseif ($this->validateRequests && $individualRequestValidation){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected function tryValidation($payload, $validateRequest) {
+        if($payload instanceof Validatable && $this->shouldValidateRequest($validateRequest)){
+            $result = $payload->validate();
+
+            if($result === false){
+                throw new ValidationFailureException();
+            }
+        }
     }
 }
