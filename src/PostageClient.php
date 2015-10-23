@@ -15,13 +15,14 @@ use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
 use Fulfillment\OMS\Api\ApiRequestBase;
+use Fulfillment\Postage\Api\PostageApi;
 use League\CLImate\CLImate;
 
 date_default_timezone_set('Europe/London');
 
 class PostageClient
 {
-    public $orders;
+    public $postage;
 
     /**
      *
@@ -76,6 +77,7 @@ class PostageClient
         ]);
 
         $apiClient = new Api($apiConfig);
+        $this->postage = new PostageApi($apiClient);
         //instantiate api
     }
 }
