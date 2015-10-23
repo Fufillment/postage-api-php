@@ -25,9 +25,8 @@ class ValidationFailureException extends \Exception
             $message .= PHP_EOL;
             $message .= ' Failed tests: ' . PHP_EOL;
         }
-        foreach ($this->validationErrors as $key => $error) {
-            $message .= '[' . $key . '] ' . $error . PHP_EOL;
-        }
+
+        $message .= json_encode($this->validationErrors, JSON_PRETTY_PRINT);
 
         parent::__construct($message, $previous);
     }
