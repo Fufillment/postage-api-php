@@ -4,7 +4,7 @@ namespace Fulfillment\Postage\Api;
 
 use Fulfillment\Api\Api;
 use Fulfillment\Postage\Exceptions\ValidationFailureException;
-use Fulfillment\Postage\Models\Contracts\Validatable;
+use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 
 class ApiRequestBase
 {

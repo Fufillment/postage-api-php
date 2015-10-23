@@ -2,13 +2,14 @@
 
 namespace Fulfillment\Postage\Api;
 
-use Fulfillment\Postage\Models\Request\Postage;
+use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Exceptions\ValidationFailureException;
+use Fulfillment\Postage\Models\Request\Postage;
 
 class PostageApi extends ApiRequestBase
 {
     /**
-     * @param Postage|array $postage
+     * @param PostageContract|array $postage
      * @param bool|true     $validateRequest
      *
      * @return Postage|array

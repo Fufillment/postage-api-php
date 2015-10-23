@@ -1,6 +1,6 @@
 <?php
 
-namespace Fulfillment\Postage\Models\Contracts;
+namespace Fulfillment\Postage\Models\Request\Contracts;
 
 
 interface Validatable

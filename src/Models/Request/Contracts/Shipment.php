@@ -2,8 +2,6 @@
 
 namespace Fulfillment\Postage\Models\Request\Contracts;
 
-use Fulfillment\Postage\Models\Request\Base\CommodityItem;
-
 interface Shipment extends \JsonSerializable
 {
     /**

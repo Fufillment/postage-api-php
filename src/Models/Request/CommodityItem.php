@@ -4,7 +4,7 @@ namespace Fulfillment\Postage\Models\Request;
 
 
 use FoxxMD\Utilities\ArrayUtil;
-use Fulfillment\Postage\Models\Contracts\Validatable;
+use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 use Fulfillment\Postage\Models\Request\Base\BaseCommodityItem;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 use Fulfillment\Postage\Models\Traits\ValidatableBase;
