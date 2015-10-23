@@ -4,7 +4,8 @@ namespace Fulfillment\Postage\Models\Request;
 
 
 use FoxxMD\Utilities\ArrayUtil;
-use Fulfillment\Postage\Models\Contracts\Validatable;
+use Fulfillment\Postage\Models\Request\Contracts\Shipment as ShipmentContract;
+use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 use Fulfillment\Postage\Models\Request\Base\BasePostage;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 use Fulfillment\Postage\Models\Traits\ValidatableBase;
@@ -37,8 +38,7 @@ class Postage extends BasePostage implements Validatable
         return [
             v::attribute('shipper', v::string()->notEmpty()),
             v::attribute('service', v::string()->notEmpty()),
-            v::attribute('shipment', v::instance('Fulfillment\Postage\Models\Shipment')),
-            v::attribute('shipment', v::callback([$this->shipment, 'validate']))
+            v::attribute('shipment', v::instance('\Fulfillment\Postage\Models\Request\Contracts\Shipment')->callback([$this->shipment, 'validate']))
         ];
     }
 }

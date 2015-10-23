@@ -4,7 +4,7 @@ namespace Fulfillment\Postage\Models\Request;
 
 
 use FoxxMD\Utilities\ArrayUtil;
-use Fulfillment\Postage\Models\Contracts\Validatable;
+use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 use Fulfillment\Postage\Models\Request\Base\BaseToAddress;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 use Fulfillment\Postage\Models\Traits\ValidatableBase;
@@ -33,8 +33,8 @@ class ToAddress extends BaseToAddress implements Validatable
     public function getValidationRules()
     {
         return [
-            v::attribute('email', v::email()->notEmpty()),
-            v::attribute('name', v::alpha()->notEmpty()),
+            v::attribute('email', v::notEmpty()->email()),
+            v::attribute('name', v::notEmpty()->alpha()),
             v::attribute('street1', v::string()->notEmpty()),
             v::attribute('city', v::alpha()->notEmpty()),
             v::attribute('stateProvince', v::alpha()->notEmpty()),
