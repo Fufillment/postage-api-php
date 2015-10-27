@@ -19,7 +19,7 @@ class ToAddress extends BaseToAddress implements Validatable
     public function __construct($data = null)
     {
         $this->email         = ArrayUtil::get($data['email']);
-        $this->name          = ArrayUtil::get($data['lastName']);
+        $this->name          = ArrayUtil::get($data['name']);
         $this->street1       = ArrayUtil::get($data['street1']);
         $this->street2       = ArrayUtil::get($data['street2']);
         $this->city          = ArrayUtil::get($data['city']);
@@ -33,7 +33,7 @@ class ToAddress extends BaseToAddress implements Validatable
     public function getValidationRules()
     {
         return [
-            v::attribute('email', v::notEmpty()->email()),
+            v::attribute('email', v::email()),
             v::attribute('name', v::notEmpty()->alpha()),
             v::attribute('street1', v::string()->notEmpty()),
             v::attribute('city', v::alpha()->notEmpty()),
