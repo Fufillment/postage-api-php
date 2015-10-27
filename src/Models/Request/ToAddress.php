@@ -33,7 +33,7 @@ class ToAddress extends BaseToAddress implements Validatable
     public function getValidationRules()
     {
         return [
-            v::attribute('email', v::email()),
+            v::attribute('email', v::oneOf(v::nullValue(), v::email())),
             v::attribute('name', v::notEmpty()->alpha()),
             v::attribute('street1', v::string()->notEmpty()),
             v::attribute('city', v::alpha()->notEmpty()),
