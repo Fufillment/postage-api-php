@@ -7,8 +7,6 @@
  */
 
 namespace Fulfillment\Postage;
-require __DIR__ . '/../vendor/autoload.php';
-
 
 use Dotenv;
 use FoxxMD\Utilities\ArrayUtil;
