@@ -39,7 +39,8 @@ class ToAddress extends BaseToAddress implements Validatable
             v::attribute('city', v::alpha()->notEmpty()),
             v::attribute('stateProvince', v::alpha()->notEmpty()),
             v::attribute('postalCode', v::int()->notEmpty()),
-            v::attribute('country', v::countryCode()->notEmpty())
+            v::attribute('country', v::countryCode()->notEmpty()),
+            v::attribute('phone', v::notEmpty()->phone())
         ];
     }
 

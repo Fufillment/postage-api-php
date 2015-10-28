@@ -40,7 +40,8 @@ class CommodityItem extends BaseCommodityItem implements Validatable
             v::attribute('code', v::string()->notEmpty()),
             v::attribute('quantity', v::numeric()->positive()->notEmpty()),
             v::attribute('unitValue', v::numeric()->positive()->notEmpty()),
-            v::attribute('unitWeight', v::numeric()->positive()->notEmpty())
+            v::attribute('unitWeight', v::numeric()->positive()->notEmpty()),
+            v::attribute('description', v::notEmpty()->string())
         ];
     }
 }
