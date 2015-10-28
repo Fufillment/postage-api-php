@@ -4,7 +4,8 @@ namespace Fulfillment\Postage\Api;
 
 use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Exceptions\ValidationFailureException;
-use Fulfillment\Postage\Models\Request\Postage;
+use Fulfillment\Postage\Models\Response\Postage as ResponsePostage;
+use Fulfillment\Postage\Models\Request\Postage as RequestPostage;
 
 class PostageApi extends ApiRequestBase
 {
@@ -12,7 +13,7 @@ class PostageApi extends ApiRequestBase
      * @param PostageContract|array $postage
      * @param bool|true     $validateRequest
      *
-     * @return Postage|array
+     * @return RequestPostage|array
      * @throws ValidationFailureException
      * @throws \JsonMapper_Exception
      */
@@ -20,8 +21,8 @@ class PostageApi extends ApiRequestBase
     {
         $this->tryValidation($postage, $validateRequest);
 
-        $json = $this->apiClient->post('postage/', $postage);
+        $json = $this->apiClient->post('postage', $postage);
 
-        return $this->jsonOnly ? $json : $this->jsonMapper->map($json, new Postage());
+        return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new ResponsePostage()));
     }
 }
