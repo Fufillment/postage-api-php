@@ -12,7 +12,6 @@ use Dotenv;
 use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
-use Fulfillment\OMS\Api\ApiRequestBase;
 use Fulfillment\Postage\Api\PostageApi;
 use League\CLImate\CLImate;
 
