@@ -13,7 +13,7 @@ class PostageApi extends ApiRequestBase
      * @param PostageContract|array $postage
      * @param bool|true     $validateRequest
      *
-     * @return RequestPostage|array
+     * @return ResponsePostage|array
      * @throws ValidationFailureException
      * @throws \JsonMapper_Exception
      */
