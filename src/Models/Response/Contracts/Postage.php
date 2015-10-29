@@ -43,7 +43,7 @@ interface Postage
     public function setCreatedBy($createdBy);
 
     /**
-     * @param $createdAt \DateTime
+     * @param $createdAt
      */
     public function setCreatedAt($createdAt);
 

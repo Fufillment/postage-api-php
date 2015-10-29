@@ -61,11 +61,19 @@ class Postage implements PostageContract, \JsonSerializable
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param $createdAt
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
+        if (is_array($createdAt)) {
+            if (isset($createdAt['date'])) {
+                $this->createdAt = new \DateTime($createdAt['date']);
+            }
+        } elseif (is_string($createdAt)) {
+            $this->createdAt = new \DateTime($createdAt);
+        } elseif ($createdAt instanceof \DateTime) {
+            $this->createdAt = $createdAt;
+        }
     }
 
     /**
@@ -75,6 +83,7 @@ class Postage implements PostageContract, \JsonSerializable
     {
         $this->postageReferenceFields = $postageReferenceFields;
     }
+
     /**
      * @return int
      */
@@ -146,6 +155,7 @@ class Postage implements PostageContract, \JsonSerializable
     {
         return $this->postageReferenceFields;
     }
+
     /**
      * @var int
      */
@@ -182,7 +192,7 @@ class Postage implements PostageContract, \JsonSerializable
     protected $createdBy;
 
     /**
-     * @var \Datetime
+     * @var array|\DateTime
      */
     protected $createdAt;
 
