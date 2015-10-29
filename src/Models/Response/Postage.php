@@ -34,6 +34,9 @@ class Postage implements PostageContract, \JsonSerializable
         $this->service = $service;
     }
 
+    /**
+     * @param TrackingNumber[] $trackingNumbers
+     */
     public function setTrackingNumbers($trackingNumbers)
     {
         $this->trackingNumbers = $trackingNumbers;
@@ -47,6 +50,9 @@ class Postage implements PostageContract, \JsonSerializable
         $this->rate = $rate;
     }
 
+    /**
+     * @param Rate[] $markUpRates
+     */
     public function setMarkUpRates($markUpRates)
     {
         $this->markUpRates = $markUpRates;

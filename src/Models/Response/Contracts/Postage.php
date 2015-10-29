@@ -23,7 +23,7 @@ interface Postage
     public function setService($service);
 
     /**
-     * @param $trackingNumbers
+     * @param TrackingNumber[] $trackingNumbers
      */
     public function setTrackingNumbers($trackingNumbers);
 
@@ -33,7 +33,7 @@ interface Postage
     public function setRate($rate);
 
     /**
-     * @param $markUpRates
+     * @param Rate[] $markUpRates
      */
     public function setMarkUpRates($markUpRates);
 
