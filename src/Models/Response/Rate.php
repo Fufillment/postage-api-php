@@ -161,6 +161,23 @@ class Rate implements RateContract, \JsonSerializable
         $this->fuelSurcharge = $fuelSurcharge;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param int $zone
+     */
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
+
     /**
      * @var string
      */
@@ -200,4 +217,9 @@ class Rate implements RateContract, \JsonSerializable
      * @var float
      */
     protected $fuelSurcharge;
+
+    /**
+     * @var int
+     */
+    protected $zone;
 }

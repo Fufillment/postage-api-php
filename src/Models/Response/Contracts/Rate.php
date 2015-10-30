@@ -98,4 +98,14 @@ interface Rate
      * @return Rate
      */
     public function setFuelSurcharge($fuelSurcharge);
+
+    /**
+     * @return int
+     */
+    public function getZone();
+
+    /**
+     * @param int $zone
+     */
+    public function setZone($zone);
 }
