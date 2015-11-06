@@ -34,11 +34,11 @@ class ToAddress extends BaseToAddress implements Validatable
     {
         return [
             v::attribute('email', v::oneOf(v::nullValue(), v::email())),
-            v::attribute('name', v::notEmpty()->alpha()),
+            v::attribute('name', v::notEmpty()->string()),
             v::attribute('street1', v::string()->notEmpty()),
             v::attribute('city', v::alpha()->notEmpty()),
             v::attribute('stateProvince', v::alpha()->notEmpty()),
-            v::attribute('postalCode', v::int()->notEmpty()),
+            v::attribute('postalCode', v::postalCode($this->country)->notEmpty()),
             v::attribute('country', v::countryCode()->notEmpty()),
             v::attribute('phone', v::notEmpty()->phone())
         ];
