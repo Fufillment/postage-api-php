@@ -15,7 +15,7 @@ class ClientValidationException extends PostageException
     public $validationErrors;
     public $context;
 
-    public function __construct($message = null, $errors = array(), \Exception $previous = null)
+    public function __construct($message = null, $errors = array(), \Exception $previous = null, $omsCode = 11)
     {
         $this->validationErrors = $errors;
 
@@ -28,7 +28,7 @@ class ClientValidationException extends PostageException
 
         $message .= json_encode($this->validationErrors, JSON_PRETTY_PRINT);
 
-        parent::__construct($message, $previous);
+        parent::__construct($message, $previous, $omsCode);
     }
 
 }

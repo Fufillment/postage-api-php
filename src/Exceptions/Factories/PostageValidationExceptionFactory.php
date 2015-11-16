@@ -22,41 +22,52 @@ class PostageValidationExceptionFactory
     {
         $groupDigit = substr($errorCode, 0, 1);
         $issueDigit = substr($errorCode, 1, 2);
+        $omsCode = 0;
+        $messageBody = ': ';
 
         switch($groupDigit){
             case 5:
                 $messagePre = 'Validation failed for Address';
-                $messageBody = ': ';
                 switch($issueDigit){
                     case 00:
                         $messageBody .= 'Address was incomplete. Check to make sure all fields were populated.';
+                        $omsCode = 11;
                         break;
                     case 05:
                         $messageBody .= 'Address was invalid.';
+                        $omsCode = 16;
                         break;
                     case 10:
                         $messageBody .= 'Country was invalid.';
+                        $omsCode = 19;
                         break;
                     case 15:
                         $messageBody .= 'StateProvince was invalid.';
+                        $omsCode = 15;
                         break;
                     case 20:
                         $messageBody .= 'City was invalid.';
+                        $omsCode = 14;
                         break;
                     case 25:
                         $messageBody .= 'Postal Code was invalid.';
+                        $omsCode = 18;
                         break;
                     case 30:
                         $messageBody .= 'Street1 was invalid.';
+                        $omsCode = 33;
                         break;
                     case 35:
                         $messageBody .= 'Street2 was invalid.';
+                        $omsCode = 33;
                         break;
                     case 40:
                         $messageBody .= 'Recipient Name was invalid.';
+                        $omsCode = 11;
                         break;
                     case 45:
                         $messageBody .= 'Recipient Company was invalid.';
+                        $omsCode = 11;
                         break;
                     case 50:
                         $messageBody .= 'Invalid credentials supplied to integration';
@@ -67,13 +78,14 @@ class PostageValidationExceptionFactory
                     default:
                         $messageBody .= $msg ?: 'Unknown error';
                 }
-                return new PostageValidationException($messagePre . $messageBody, $errorCode);
+                return new PostageValidationException($messagePre . $messageBody, $errorCode, null, $omsCode);
             case 6:
                 $messagePre = 'A part of the postage object was invalid';
                 $messageBody = ': ';
                 switch($issueDigit){
                     case 00:
                         $messageBody .= 'Shipment weight is invalid for the chosen service.';
+                        $omsCode = 37;
                         break;
                     case 05:
                         $messageBody .= 'The weight of the Commodity Items exceeds the Shipment weight.';
@@ -93,7 +105,7 @@ class PostageValidationExceptionFactory
                     default:
                         $messageBody .= $msg ?: 'Unknown error.';
                 }
-                return new PostageComponentException($messagePre . $messageBody, $errorCode);
+                return new PostageComponentException($messagePre . $messageBody, $errorCode, null, $omsCode);
             case 7:
                 $messagePre = 'The chosen Service encountered an error';
                 $messageBody = ': ';
@@ -107,11 +119,11 @@ class PostageValidationExceptionFactory
                     default:
                         $messageBody .= $msg ?: 'Unknown error.';
                 }
-                return new PostageServiceException($messagePre . $messageBody, $errorCode);
+                return new PostageServiceException($messagePre . $messageBody, $errorCode, null, $omsCode);
                 break;
             case 9:
-                $messageBody = 'Postage creation failed for an unknown reason';
-                return new PostageException($messageBody, $errorCode);
+                $messageBody = 'Postage creation failed for an unknown reason' . (!is_null($msg) ? (': ' . $msg) : '.');
+                return new PostageException($messageBody, $errorCode, null, $omsCode);
             default:
                 return null;
         }
