@@ -22,6 +22,7 @@ abstract class BaseShipment implements ShipmentContract
     public function setWeightType($weightType)
     {
         $this->weightType = $weightType;
+
         return $this;
     }
 
@@ -41,6 +42,7 @@ abstract class BaseShipment implements ShipmentContract
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 
@@ -60,6 +62,7 @@ abstract class BaseShipment implements ShipmentContract
     public function setToAddress($toAddress)
     {
         $this->toAddress = $toAddress;
+
         return $this;
     }
 
@@ -79,6 +82,7 @@ abstract class BaseShipment implements ShipmentContract
     public function setPackaging($packaging)
     {
         $this->packaging = $packaging;
+
         return $this;
     }
 
@@ -98,6 +102,7 @@ abstract class BaseShipment implements ShipmentContract
     public function setCommodityItems($commodityItems)
     {
         $this->commodityItems = $commodityItems;
+
         return $this;
     }
 
@@ -109,6 +114,7 @@ abstract class BaseShipment implements ShipmentContract
     public function addCommodityItem($commodityItem)
     {
         $this->commodityItems[] = $commodityItem;
+
         return $this;
     }
 
@@ -117,10 +123,26 @@ abstract class BaseShipment implements ShipmentContract
      */
     public function removeCommodityItem($commodityItem)
     {
-        if(($key = array_search($commodityItem, $this->commodityItems)) !== false) {
+        if (($key = array_search($commodityItem, $this->commodityItems)) !== false) {
             unset($this->commodityItems[$key]);
         }
 
+    }
+
+    /**
+     * @param $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -147,4 +169,9 @@ abstract class BaseShipment implements ShipmentContract
      * @var BaseCommodityItem[]
      */
     protected $commodityItems;
+
+    /**
+     * @var string
+     */
+    protected $description;
 }

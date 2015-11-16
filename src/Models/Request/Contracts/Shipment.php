@@ -63,4 +63,14 @@ interface Shipment extends \JsonSerializable
      * @param CommodityItem $commodityItem
      */
     public function removeCommodityItem($commodityItem);
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description);
+
+    /**
+     * @return string
+     */
+    public function getDescription();
 }

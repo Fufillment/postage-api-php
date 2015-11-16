@@ -23,6 +23,7 @@ class Shipment extends BaseShipment implements Validatable
         $this->toAddress      = ArrayUtil::get($data['toAddress']);
         $this->packaging      = ArrayUtil::get($data['packaging']);
         $this->commodityItems = ArrayUtil::get($data['commodityItems']);
+        $this->description    = ArrayUtil::get($data['description']);
     }
 
     public function getValidationRules()
