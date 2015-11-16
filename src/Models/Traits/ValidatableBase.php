@@ -2,7 +2,7 @@
 
 namespace Fulfillment\Postage\Models\Traits;
 
-use Fulfillment\Postage\Exceptions\ValidationFailureException;
+use Fulfillment\Postage\Exceptions\ClientValidationException;
 use Respect\Validation\Exceptions\ValidationExceptionInterface;
 use Respect\Validation\Validator;
 
@@ -29,7 +29,7 @@ trait ValidatableBase
                 $varName                            = current($validator->getRules())->getName();
                 $errorMessage                       = str_replace('""', 'Property', $e->getMainMessage());
                 $errors[$this->shortName][$varName] = $errorMessage;
-            } catch (ValidationFailureException $v) {
+            } catch (ClientValidationException $v) {
                 $this->populateShortName();
 
                 //this is from nested validation
@@ -37,7 +37,7 @@ trait ValidatableBase
             }
         }
         if (!empty($errors)) {
-            throw new ValidationFailureException("Validation failed for " . get_class($this), $errors);
+            throw new ClientValidationException("Validation failed for " . get_class($this), $errors);
         } else {
             return true;
         }

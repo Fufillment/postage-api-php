@@ -2,26 +2,38 @@
 
 namespace Fulfillment\Postage\Api;
 
+use Fulfillment\Postage\Exceptions\Factories\PostageValidationExceptionFactory;
 use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
-use Fulfillment\Postage\Exceptions\ValidationFailureException;
+use Fulfillment\Postage\Exceptions\ClientValidationException;
 use Fulfillment\Postage\Models\Response\Contracts\Postage;
 use Fulfillment\Postage\Models\Response\Postage as ResponsePostage;
+use GuzzleHttp\Exception\RequestException;
 
 class PostageApi extends ApiRequestBase
 {
     /**
      * @param PostageContract|array $postage
      * @param bool|true             $validateRequest
-     *
      * @return array|ResponsePostage
-     * @throws ValidationFailureException
+     * @throws ClientValidationException
+     * @throws \Fulfillment\Postage\Exceptions\PostageException|null
      * @throws \JsonMapper_Exception
      */
     public function create($postage, $validateRequest = true)
     {
         $this->tryValidation($postage, $validateRequest);
 
-        $json = $this->apiClient->post('postage', $postage);
+        try {
+            $json = $this->apiClient->post('postage', $postage);
+        } catch (RequestException $e) {
+            //use a more descriptive error if possible
+            $pException = PostageValidationExceptionFactory::fromErrorCode($e->getCode());
+            if (!is_null($pException)) {
+                throw $pException;
+            } else {
+                throw $e;
+            }
+        }
 
         return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new ResponsePostage()));
     }
@@ -74,9 +86,9 @@ class PostageApi extends ApiRequestBase
      */
     public function getLabel($postage, $documentType, $destination = 'response')
     {
-        if(is_null($documentType)){
+        if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');
-        } elseif(!is_string($documentType)){
+        } elseif (!is_string($documentType)) {
             throw new \Exception('Document type must be a string');
         }
         $id = $this->getPostageId($postage);

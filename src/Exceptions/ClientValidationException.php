@@ -9,7 +9,7 @@
 namespace Fulfillment\Postage\Exceptions;
 
 
-class ValidationFailureException extends \Exception
+class ClientValidationException extends PostageException
 {
 
     public $validationErrors;

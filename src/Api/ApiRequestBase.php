@@ -3,7 +3,7 @@
 namespace Fulfillment\Postage\Api;
 
 use Fulfillment\Api\Api;
-use Fulfillment\Postage\Exceptions\ValidationFailureException;
+use Fulfillment\Postage\Exceptions\ClientValidationException;
 use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 
 class ApiRequestBase
@@ -52,7 +52,7 @@ class ApiRequestBase
             $result = $payload->validate();
 
             if($result === false){
-                throw new ValidationFailureException();
+                throw new ClientValidationException();
             }
         }
     }
