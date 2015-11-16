@@ -14,10 +14,11 @@ class PostageValidationExceptionFactory
     /**
      * Return a more descriptive validation exception generated from an error code
      *
-     * @param int $errorCode
+     * @param int  $errorCode
+     * @param null $msg
      * @return PostageException|null
      */
-    public static function fromErrorCode($errorCode)
+    public static function fromErrorCode($errorCode, $msg = null)
     {
         $groupDigit = substr($errorCode, 0, 1);
         $issueDigit = substr($errorCode, 1, 2);
@@ -64,7 +65,7 @@ class PostageValidationExceptionFactory
                         $messageBody .= 'Recipient phone number was invalid';
                         break;
                     default:
-                        $messageBody .= 'Unknown error.';
+                        $messageBody .= $msg ?: 'Unknown error';
                 }
                 return new PostageValidationException($messagePre . $messageBody, $errorCode);
             case 6:
@@ -90,7 +91,7 @@ class PostageValidationExceptionFactory
                         $messageBody .= 'A Commodity Item has an invalid weight.';
                         break;
                     default:
-                        $messageBody .= 'Unknown error.';
+                        $messageBody .= $msg ?: 'Unknown error.';
                 }
                 return new PostageComponentException($messagePre . $messageBody, $errorCode);
             case 7:
@@ -104,7 +105,7 @@ class PostageValidationExceptionFactory
                         $messageBody .= 'Chosen service is not available in ToAddress country';
                         break;
                     default:
-                        $messageBody .= 'Unknown error.';
+                        $messageBody .= $msg ?: 'Unknown error.';
                 }
                 return new PostageServiceException($messagePre . $messageBody, $errorCode);
                 break;

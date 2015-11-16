@@ -2,6 +2,7 @@
 
 namespace Fulfillment\Postage\Api;
 
+use Fulfillment\Api\Utilities\RequestParser;
 use Fulfillment\Postage\Exceptions\Factories\PostageValidationExceptionFactory;
 use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Exceptions\ClientValidationException;
@@ -27,7 +28,9 @@ class PostageApi extends ApiRequestBase
             $json = $this->apiClient->post('postage', $postage);
         } catch (RequestException $e) {
             //use a more descriptive error if possible
-            $pException = PostageValidationExceptionFactory::fromErrorCode($e->getCode());
+            $error = RequestParser::parseError($e);
+            $message = (isset($error['message']) ? $error['message'] : null);
+            $pException = PostageValidationExceptionFactory::fromErrorCode(RequestParser::getErrorCode($e), $msg);
             if (!is_null($pException)) {
                 throw $pException;
             } else {
