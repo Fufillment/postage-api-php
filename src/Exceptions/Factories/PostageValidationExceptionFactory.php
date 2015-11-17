@@ -114,7 +114,7 @@ class PostageValidationExceptionFactory
                         $messageBody .= 'Destination address is not served by the chosen Service';
                         break;
                     case 05:
-                        $messageBody .= 'Chosen service is not available in ToAddress country';
+                        $messageBody .= 'Service is not available in specified country (see ToAddress)';
                         break;
                     default:
                         $messageBody .= $msg ?: 'Unknown error.';
