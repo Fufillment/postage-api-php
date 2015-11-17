@@ -30,7 +30,7 @@ class PostageApi extends ApiRequestBase
             //use a more descriptive error if possible
             $error = RequestParser::parseError($e);
             $message = (isset($error['message']) ? $error['message'] : null);
-            $pException = PostageValidationExceptionFactory::fromErrorCode(RequestParser::getErrorCode($e), $msg);
+            $pException = PostageValidationExceptionFactory::fromErrorCode(RequestParser::getErrorCode($e), $message);
             if (!is_null($pException)) {
                 throw $pException;
             } else {
