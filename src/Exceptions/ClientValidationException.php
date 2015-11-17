@@ -28,7 +28,7 @@ class ClientValidationException extends PostageException
 
         $message .= json_encode($this->validationErrors, JSON_PRETTY_PRINT);
 
-        parent::__construct($message, $previous, $omsCode);
+        parent::__construct($message, 0, $previous, $omsCode);
     }
 
 }
