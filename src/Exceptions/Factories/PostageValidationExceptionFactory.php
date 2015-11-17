@@ -128,4 +128,31 @@ class PostageValidationExceptionFactory
                 return null;
         }
     }
+
+    public static function fromErrorMessage($message = null, $validationError = null){
+        //addresses first
+        $messageBody = ': ';
+        $omsCode = null;
+
+        if(is_null($message)){
+            return null;
+        }
+
+        if(strpos(strtolower($message), 'address') !== false){
+            $messagePre = 'Validation failed for Address';
+            $omsCode = 11;
+            if(!is_null($validationError)){
+                if(strpos(strtolower($validationError), 'postalcode') !== false){
+                    $omsCode = 18;
+                    $messageBody .= 'Invalid PostalCode';
+                } elseif(strpos(strtolower($validationError), 'country') !== false){
+                    $omsCode = 19;
+                    $messageBody .= 'Invalid Country';
+                }
+            }
+            return new PostageValidationException($messagePre . $messageBody, 0, null, $omsCode);
+        }
+
+        return null;
+    }
 }

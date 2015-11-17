@@ -2,6 +2,7 @@
 
 namespace Fulfillment\Postage\Api;
 
+use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Utilities\RequestParser;
 use Fulfillment\Postage\Exceptions\Factories\PostageValidationExceptionFactory;
 use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
@@ -29,12 +30,17 @@ class PostageApi extends ApiRequestBase
         } catch (RequestException $e) {
             //use a more descriptive error if possible
             $error = RequestParser::parseError($e);
-            $message = (isset($error['message']) ? $error['message'] : null);
+            $message = ArrayUtil::get($error['message']);
             $pException = PostageValidationExceptionFactory::fromErrorCode(RequestParser::getErrorCode($e), $message);
             if (!is_null($pException)) {
                 throw $pException;
-            } else {
-                throw $e;
+            } else{
+                $pException = PostageValidationExceptionFactory::fromErrorMessage($message, ArrayUtil::get($error['validationErrors']));
+                if(!is_null($pException)){
+                    throw $pException;
+                } else {
+                    throw $e;
+                }
             }
         }
 
