@@ -156,16 +156,20 @@ class PostageValidationExceptionFactory
             $messagePre = 'Validation failed for Commodity Items';
             $omsCode = 11;
             if(!is_null($validationErrors) && is_array($validationErrors)){
+                $keys = array_keys($validationErrors);
+
                 if(count($validationErrors) == 1){
-                    $keys = array_keys($validationErrors);
                     $type = $keys[0];
 
                     if(strpos(strtolower($type), 'unitweight') !== false){
                         $omsCode = 625;
                         $messageBody .= 'Unitweight -- ' . $validationErrors[$type];
+                    } else {
+                        $messageBody .= $validationErrors[$keys[0]];
                     }
                 }
-
+            } else {
+                $messageBody .= $message;
             }
             return new PostageValidationException($messagePre . $messageBody, 0, null, $omsCode);
         }
