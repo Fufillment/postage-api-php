@@ -142,12 +142,16 @@ class PostageValidationExceptionFactory
             $messagePre = 'Validation failed for Address';
             $omsCode = 11;
             if(!is_null($validationErrors) && !is_array($validationErrors)){
+                $keys = array_keys($validationErrors);
+
                 if(strpos(strtolower($validationErrors), 'postalcode') !== false){
                     $omsCode = 18;
                     $messageBody .= 'Invalid PostalCode';
                 } elseif(strpos(strtolower($validationErrors), 'country') !== false){
                     $omsCode = 19;
                     $messageBody .= 'Invalid Country';
+                } else {
+                    $messageBody .= $validationErrors[$keys[0]];
                 }
             }
             return new PostageValidationException($messagePre . $messageBody, 0, null, $omsCode);
