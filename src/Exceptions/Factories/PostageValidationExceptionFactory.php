@@ -129,7 +129,7 @@ class PostageValidationExceptionFactory
         }
     }
 
-    public static function fromErrorMessage($message = null, $validationError = null){
+    public static function fromErrorMessage($message = null, $validationErrors = null){
         //addresses first
         $messageBody = ': ';
         $omsCode = null;
@@ -141,14 +141,31 @@ class PostageValidationExceptionFactory
         if(strpos(strtolower($message), 'address') !== false){
             $messagePre = 'Validation failed for Address';
             $omsCode = 11;
-            if(!is_null($validationError)){
-                if(strpos(strtolower($validationError), 'postalcode') !== false){
+            if(!is_null($validationErrors) && !is_array($validationErrors)){
+                if(strpos(strtolower($validationErrors), 'postalcode') !== false){
                     $omsCode = 18;
                     $messageBody .= 'Invalid PostalCode';
-                } elseif(strpos(strtolower($validationError), 'country') !== false){
+                } elseif(strpos(strtolower($validationErrors), 'country') !== false){
                     $omsCode = 19;
                     $messageBody .= 'Invalid Country';
                 }
+            }
+            return new PostageValidationException($messagePre . $messageBody, 0, null, $omsCode);
+        }
+        if(strpos(strtolower($message), 'commodityitem') !== false){
+            $messagePre = 'Validation failed for Commodity Items';
+            $omsCode = 11;
+            if(!is_null($validationErrors) && is_array($validationErrors)){
+                if(count($validationErrors) == 1){
+                    $keys = array_keys($validationErrors);
+                    $type = $keys[0];
+
+                    if(strpos(strtolower($type), 'unitweight') !== false){
+                        $omsCode = 625;
+                        $messageBody .= 'Unitweight -- ' . $validationErrors[$type];
+                    }
+                }
+
             }
             return new PostageValidationException($messagePre . $messageBody, 0, null, $omsCode);
         }
