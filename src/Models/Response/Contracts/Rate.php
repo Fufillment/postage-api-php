@@ -3,27 +3,24 @@ namespace Fulfillment\Postage\Models\Response\Contracts;
 
 interface Rate
 {
+
     /**
-     * @return string
+     * @return Currency
      */
     public function getCurrency();
 
     /**
-     * @param string $currency
-     *
-     * @return Rate
+     * @param Currency $currency
      */
     public function setCurrency($currency);
 
     /**
-     * @return string
+     * @return PriceGroup
      */
     public function getPriceGroup();
 
     /**
-     * @param string $priceGroup
-     *
-     * @return Rate
+     * @param PriceGroup $priceGroup
      */
     public function setPriceGroup($priceGroup);
 
@@ -34,8 +31,6 @@ interface Rate
 
     /**
      * @param float $base
-     *
-     * @return Rate
      */
     public function setBase($base);
 
@@ -46,20 +41,16 @@ interface Rate
 
     /**
      * @param float $total
-     *
-     * @return Rate
      */
     public function setTotal($total);
 
     /**
-     * @return string
+     * @return TaxType
      */
     public function getTaxType();
 
     /**
-     * @param string $taxType
-     *
-     * @return Rate
+     * @param TaxType $taxType
      */
     public function setTaxType($taxType);
 
@@ -70,20 +61,16 @@ interface Rate
 
     /**
      * @param float $tax
-     *
-     * @return Rate
      */
     public function setTax($tax);
 
     /**
-     * @return string
+     * @return FuelSurchargeType
      */
     public function getFuelSurchargeType();
 
     /**
-     * @param string $fuelSurchargeType
-     *
-     * @return Rate
+     * @param FuelSurchargeType $fuelSurchargeType
      */
     public function setFuelSurchargeType($fuelSurchargeType);
 
@@ -94,18 +81,18 @@ interface Rate
 
     /**
      * @param float $fuelSurcharge
-     *
-     * @return Rate
      */
     public function setFuelSurcharge($fuelSurcharge);
 
     /**
-     * @return int
+     * @return Zone
      */
     public function getZone();
 
     /**
-     * @param int $zone
+     * @param Zone $zone
      */
     public function setZone($zone);
+
+
 }

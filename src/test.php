@@ -1,20 +1,61 @@
 <?php
 
-namespace Fulfillment\OMS;
+namespace Fulfillment\Postage;
 
-
-use Fulfillment\OMS\Tests\DataUtility;
+use Fulfillment\Postage\Models\Request\Address;
+use Fulfillment\Postage\Models\Request\CommodityItem;
+use Fulfillment\Postage\Models\Request\Postage;
+use Fulfillment\Postage\Models\Request\Shipment;
+use Fulfillment\Postage\Models\Request\ReferenceFields;
 
 require __DIR__.'/../vendor/autoload.php';
 
-$oms = new OMS(__DIR__.'/../');
+$comItem = new CommodityItem([
+    'fromCountry'           =>  'US',
+    'currency'              =>  'USD',
+    'weightType'            =>  'OZ',
+    'code'                  =>  'asku',
+    'description'           =>  'fsdfd',
+    'quantity'              =>  1,
+    'unitValue'             =>  1.00,
+    'unitWeight'            =>  1,
+]);
 
-//$orders = $oms->orders->getOrders('2015-2-1','2015-2-2',['XDEBUG_SESSION_START' => 'apinext', 'merchantIds' => 50133]);
+$referenceFields = new ReferenceFields([
+    'shipperReference'      =>  '1111',
+    'consigneeReference'    =>  '2222',
+    'reference1'            =>  '3333',
+]);
 
-//$newOrder = new Order(DataUtility::requestOrder());
-//$oms->orders->createOrder($newOrder, ['XDEBUG_SESSION_START' => 'apinext']);
+$address = new Address([
+    'name'                  =>  'James Weston',
+    'street1'               =>  '31 Sandy Beach Rd',
+    'city'                  =>  'Auburn',
+    'stateProvince'         =>  'ME',
+    'postalCode'            =>  '04210',
+    'country'               =>  'US',
+    'phone'                 =>  '9121111111'
+]);
 
-$order = $oms->orders->getOrder(7031961);
+$shipment = new Shipment([
+    'weightType'            =>  'OZ',
+    'weight'                =>  1,
+    'toAddress'             =>  $address,
+    'commodityItems'        =>  [$comItem]
+]);
 
-var_dump($order);
-//$f = $order;
+$postageObj = new Postage([
+    'shipper'               =>  'FDC_SAV_01',
+    'service'               =>  'USPS_PriorityMail',
+    'referenceFields'       =>  $referenceFields,
+    'shipment'              =>  $shipment
+]);
+
+
+$client = new PostageClient(__DIR__.'/../');
+
+$postageResponse = $client->postage->createPostage($postageObj);
+print_r($postageResponse);
+
+$voidResponse = $client->postage->voidPostage($postageResponse->getId());
+print_r($voidResponse);

@@ -2,9 +2,7 @@
 
 namespace Fulfillment\Postage\Models\Request;
 
-
 use FoxxMD\Utilities\ArrayUtil;
-use Fulfillment\Postage\Models\Request\Contracts\Shipment as ShipmentContract;
 use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 use Fulfillment\Postage\Models\Request\Base\BasePostage;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
@@ -18,16 +16,10 @@ class Postage extends BasePostage implements Validatable
 
     public function __construct($data = null)
     {
-        $this->shipper            = ArrayUtil::get($data['shipper']);
-        $this->service            = ArrayUtil::get($data['service']);
-        $this->shipperReference   = ArrayUtil::get($data['shipperReference']);
-        $this->consigneeReference = ArrayUtil::get($data['consigneeReference']);
-        $this->reference1         = ArrayUtil::get($data['reference1']);
-        $this->reference2         = ArrayUtil::get($data['reference2']);
-        $this->reference3         = ArrayUtil::get($data['reference3']);
-        $this->reference4         = ArrayUtil::get($data['reference4']);
-        $this->reference5         = ArrayUtil::get($data['reference5']);
-        $this->shipment           = ArrayUtil::get($data['shipment']);
+        $this->shipper                          =   ArrayUtil::get($data['shipper']);
+        $this->service                          =   ArrayUtil::get($data['service']);
+        $this->referenceFields                  =   ArrayUtil::get($data['referenceFields']);
+        $this->shipment                         =   ArrayUtil::get($data['shipment']);
     }
 
     /**
@@ -36,9 +28,10 @@ class Postage extends BasePostage implements Validatable
     public function getValidationRules()
     {
         return [
-            v::attribute('shipper', v::string()->notEmpty()),
-            v::attribute('service', v::string()->notEmpty()),
-            v::attribute('shipment', v::instance('\Fulfillment\Postage\Models\Request\Contracts\Shipment')->callback([$this->shipment, 'validate']))
+            v::attribute('shipper',                 v::string()->notEmpty()),
+            v::attribute('service',                 v::string()->notEmpty()),
+            v::attribute('referenceFields',         v::instance('\Fulfillment\Postage\Models\Request\Contracts\ReferenceFields')->callback([$this->referenceFields, 'validate'])),
+            v::attribute('shipment',                v::instance('\Fulfillment\Postage\Models\Request\Contracts\Shipment')->callback([$this->shipment, 'validate'])),
         ];
     }
 }

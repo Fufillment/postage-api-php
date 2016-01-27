@@ -6,6 +6,38 @@ use \Fulfillment\Postage\Models\Request\Contracts\Shipment as ShipmentContract;
 
 abstract class BaseShipment implements ShipmentContract
 {
+
+    /**
+     * @var string
+     */
+    protected $weightType;
+
+    /**
+     * @var float
+     */
+    protected $weight;
+
+    /**
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * @var BaseAddress
+     */
+    protected $toAddress;
+
+    /**
+     * @var BasePackaging
+     */
+    protected $packaging;
+
+    /**
+     * @var BaseCommodityItem[]
+     */
+    protected $commodityItems;
+
+
     /**
      * @return string
      */
@@ -16,14 +48,10 @@ abstract class BaseShipment implements ShipmentContract
 
     /**
      * @param string $weightType
-     *
-     * @return BaseShipment
      */
     public function setWeightType($weightType)
     {
         $this->weightType = $weightType;
-
-        return $this;
     }
 
     /**
@@ -36,97 +64,10 @@ abstract class BaseShipment implements ShipmentContract
 
     /**
      * @param float $weight
-     *
-     * @return BaseShipment
      */
     public function setWeight($weight)
     {
         $this->weight = $weight;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getToAddress()
-    {
-        return $this->toAddress;
-    }
-
-    /**
-     * @param string $toAddress
-     *
-     * @return BaseShipment
-     */
-    public function setToAddress($toAddress)
-    {
-        $this->toAddress = $toAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPackaging()
-    {
-        return $this->packaging;
-    }
-
-    /**
-     * @param string $packaging
-     *
-     * @return BaseShipment
-     */
-    public function setPackaging($packaging)
-    {
-        $this->packaging = $packaging;
-
-        return $this;
-    }
-
-    /**
-     * @return CommodityItem[]
-     */
-    public function getCommodityItems()
-    {
-        return $this->commodityItems;
-    }
-
-    /**
-     * @param BaseCommodityItem[] $commodityItems
-     *
-     * @return BaseShipment
-     */
-    public function setCommodityItems($commodityItems)
-    {
-        $this->commodityItems = $commodityItems;
-
-        return $this;
-    }
-
-    /**
-     * @param BaseCommodityItem $commodityItem
-     *
-     * @return BaseShipment
-     */
-    public function addCommodityItem($commodityItem)
-    {
-        $this->commodityItems[] = $commodityItem;
-
-        return $this;
-    }
-
-    /**
-     * @param BaseCommodityItem $commodityItem
-     */
-    public function removeCommodityItem($commodityItem)
-    {
-        if (($key = array_search($commodityItem, $this->commodityItems)) !== false) {
-            unset($this->commodityItems[$key]);
-        }
-
     }
 
     /**
@@ -146,32 +87,70 @@ abstract class BaseShipment implements ShipmentContract
     }
 
     /**
-     * @var string
+     * @return BaseAddress
      */
-    protected $weightType;
+    public function getToAddress()
+    {
+        return $this->toAddress;
+    }
 
     /**
-     * @var float
+     * @param $toAddress
      */
-    protected $weight;
+    public function setToAddress($toAddress)
+    {
+        $this->toAddress = $toAddress;
+    }
 
     /**
-     * @var string
+     * @return BasePackaging
      */
-    protected $toAddress;
+    public function getPackaging()
+    {
+        return $this->packaging;
+    }
 
     /**
-     * @var BasePackaging
+     * @param $packaging
      */
-    protected $packaging;
+    public function setPackaging($packaging)
+    {
+        $this->packaging = $packaging;
+    }
 
     /**
-     * @var BaseCommodityItem[]
+     * @return BaseCommodityItem[]
      */
-    protected $commodityItems;
+    public function getCommodityItems()
+    {
+        return $this->commodityItems;
+    }
 
     /**
-     * @var string
+     * @param $commodityItems[]
      */
-    protected $description;
+    public function setCommodityItems($commodityItems)
+    {
+        $this->commodityItems = $commodityItems;
+    }
+
+    /**
+     * @param $commodityItem
+     */
+    public function addCommodityItem($commodityItem)
+    {
+        $this->commodityItems[] = $commodityItem;
+    }
+
+    /**
+     * @param $commodityItem
+     */
+    public function removeCommodityItem($commodityItem)
+    {
+        if (($key = array_search($commodityItem, $this->commodityItems)) !== false) {
+            unset($this->commodityItems[$key]);
+        }
+
+    }
+
 }

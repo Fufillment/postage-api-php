@@ -1,9 +1,20 @@
 <?php
 
-namespace Fulfillment\Postage\Models\Request\Contracts;
+namespace Fulfillment\Postage\Models\Response\Contracts;
 
-interface ToAddress extends \JsonSerializable
+interface Address
 {
+
+    /**
+     * @return int
+     */
+    public function getId();
+
+    /**
+     * @param int $id
+     */
+    public function setId($id);
+
     /**
      * @return string
      */
@@ -77,16 +88,6 @@ interface ToAddress extends \JsonSerializable
     /**
      * @return string
      */
-    public function getCountry();
-
-    /**
-     * @param string $country
-     */
-    public function setCountry($country);
-
-    /**
-     * @return string
-     */
     public function getPhone();
 
     /**
@@ -103,4 +104,25 @@ interface ToAddress extends \JsonSerializable
      * @param string $email
      */
     public function setEmail($email);
+
+    /**
+     * @return Subdivision
+     */
+    public function getSubdivision();
+
+    /**
+     * @param Subdivision $subdivision
+     */
+    public function setSubdivision($subdivision);
+
+    /**
+     * @return Country
+     */
+    public function getCountry();
+
+    /**
+     * @param Country $country
+     */
+    public function setCountry($country);
+
 }

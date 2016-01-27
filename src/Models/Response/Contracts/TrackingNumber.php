@@ -3,20 +3,6 @@ namespace Fulfillment\Postage\Models\Response\Contracts;
 
 interface TrackingNumber
 {
-    /**
-     * @param string $value
-     */
-    public function setValue($value);
-
-    /**
-     * @param string $barcodeScanValue
-     */
-    public function setBarcodeScanValue($barcodeScanValue);
-
-    /**
-     * @param string $carrier
-     */
-    public function setCarrier($carrier);
 
     /**
      * @return string
@@ -24,12 +10,29 @@ interface TrackingNumber
     public function getValue();
 
     /**
+     * @param string $value
+     */
+    public function setValue($value);
+
+    /**
      * @return string
      */
     public function getBarcodeScanValue();
 
     /**
-     * @return string
+     * @param string $barcodeScanValue
+     */
+    public function setBarcodeScanValue($barcodeScanValue);
+
+
+    /**
+     * @return Carrier
      */
     public function getCarrier();
+
+
+    /**
+     * @param Carrier $carrier
+     */
+    public function setCarrier($carrier);
 }

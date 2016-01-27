@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mduncan
- * Date: 10/22/15
- * Time: 3:32 PM
- */
+
 namespace Fulfillment\Postage\Models\Request\Contracts;
 
 interface Packaging extends \JsonSerializable
@@ -16,8 +11,6 @@ interface Packaging extends \JsonSerializable
 
     /**
      * @param string $distanceType
-     *
-     * @return \Fulfillment\Postage\Models\Request\Base\Packaging
      */
     public function setDistanceType($distanceType);
 
@@ -28,8 +21,6 @@ interface Packaging extends \JsonSerializable
 
     /**
      * @param float $length
-     *
-     * @return \Fulfillment\Postage\Models\Request\Base\Packaging
      */
     public function setLength($length);
 
@@ -40,8 +31,6 @@ interface Packaging extends \JsonSerializable
 
     /**
      * @param float $width
-     *
-     * @return \Fulfillment\Postage\Models\Request\Base\Packaging
      */
     public function setWidth($width);
 
@@ -52,8 +41,6 @@ interface Packaging extends \JsonSerializable
 
     /**
      * @param float $height
-     *
-     * @return \Fulfillment\Postage\Models\Request\Base\Packaging
      */
     public function setHeight($height);
 }

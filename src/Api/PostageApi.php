@@ -21,7 +21,7 @@ class PostageApi extends ApiRequestBase
      * @throws \Fulfillment\Postage\Exceptions\PostageException|null
      * @throws \JsonMapper_Exception
      */
-    public function create($postage, $validateRequest = true)
+    public function createPostage($postage, $validateRequest = true)
     {
         $this->tryValidation($postage, $validateRequest);
 
@@ -52,14 +52,9 @@ class PostageApi extends ApiRequestBase
      *
      * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself that should be voided
      */
-    public function void($postage)
+    public function voidPostage($postage)
     {
-        $id = null;
-        if (is_int($postage)) {
-            $id = $postage;
-        } elseif ($postage instanceof Postage) {
-            $id = $postage->getId();
-        }
+        $id = $this->getPostageId($postage);
 
         $this->apiClient->delete("postage/$id");
     }
@@ -71,14 +66,9 @@ class PostageApi extends ApiRequestBase
      *
      * @return array|ResponsePostage
      */
-    public function get($postage)
+    public function getPostage($postage)
     {
-        $id = null;
-        if (is_int($postage)) {
-            $id = $postage;
-        } elseif ($postage instanceof Postage) {
-            $id = $postage->getId();
-        }
+        $id = $this->getPostageId($postage);
 
         $json = $this->apiClient->get("postage/$id");
 
@@ -93,7 +83,7 @@ class PostageApi extends ApiRequestBase
      * @return mixed
      * @throws \Exception
      */
-    public function getLabel($postage, $documentType, $destination = 'response')
+    public function getPostageLabel($postage, $documentType, $destination = 'response')
     {
         if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');

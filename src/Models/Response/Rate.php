@@ -10,181 +10,14 @@ class Rate implements RateContract, \JsonSerializable
 {
     use SimpleSerializable;
 
-    /**
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
 
     /**
-     * @param string $currency
-     *
-     * @return Rate
-     */
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPriceGroup()
-    {
-        return $this->priceGroup;
-    }
-
-    /**
-     * @param string $priceGroup
-     *
-     * @return Rate
-     */
-    public function setPriceGroup($priceGroup)
-    {
-        $this->priceGroup = $priceGroup;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getBase()
-    {
-        return $this->base;
-    }
-
-    /**
-     * @param float $base
-     *
-     * @return Rate
-     */
-    public function setBase($base)
-    {
-        $this->base = $base;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
-     * @param float $total
-     *
-     * @return Rate
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTaxType()
-    {
-        return $this->taxType;
-    }
-
-    /**
-     * @param string $taxType
-     *
-     * @return Rate
-     */
-    public function setTaxType($taxType)
-    {
-        $this->taxType = $taxType;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getTax()
-    {
-        return $this->tax;
-    }
-
-    /**
-     * @param float $tax
-     *
-     * @return Rate
-     */
-    public function setTax($tax)
-    {
-        $this->tax = $tax;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFuelSurchargeType()
-    {
-        return $this->fuelSurchargeType;
-    }
-
-    /**
-     * @param string $fuelSurchargeType
-     *
-     * @return Rate
-     */
-    public function setFuelSurchargeType($fuelSurchargeType)
-    {
-        $this->fuelSurchargeType = $fuelSurchargeType;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getFuelSurcharge()
-    {
-        return $this->fuelSurcharge;
-    }
-
-    /**
-     * @param float $fuelSurcharge
-     *
-     * @return Rate
-     */
-    public function setFuelSurcharge($fuelSurcharge)
-    {
-        $this->fuelSurcharge = $fuelSurcharge;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getZone()
-    {
-        return $this->zone;
-    }
-
-    /**
-     * @param int $zone
-     */
-    public function setZone($zone)
-    {
-        $this->zone = $zone;
-    }
-
-    /**
-     * @var string
+     * @var Currency
      */
     protected $currency;
 
     /**
-     * @var string
+     * @var PriceGroup
      */
     protected $priceGroup;
 
@@ -199,7 +32,7 @@ class Rate implements RateContract, \JsonSerializable
     protected $total;
 
     /**
-     * @var string
+     * @var TaxType
      */
     protected $taxType;
 
@@ -209,7 +42,7 @@ class Rate implements RateContract, \JsonSerializable
     protected $tax;
 
     /**
-     * @var string
+     * @var FuelSurchargeType
      */
     protected $fuelSurchargeType;
 
@@ -219,7 +52,152 @@ class Rate implements RateContract, \JsonSerializable
     protected $fuelSurcharge;
 
     /**
-     * @var int
+     * @var Zone
      */
     protected $zone;
+
+
+    /**
+     * @return Currency
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param Currency $currency
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+    }
+
+    /**
+     * @return PriceGroup
+     */
+    public function getPriceGroup()
+    {
+        return $this->priceGroup;
+    }
+
+    /**
+     * @param PriceGroup $priceGroup
+     */
+    public function setPriceGroup($priceGroup)
+    {
+        $this->priceGroup = $priceGroup;
+    }
+
+    /**
+     * @return float
+     */
+    public function getBase()
+    {
+        return $this->base;
+    }
+
+    /**
+     * @param float $base
+     */
+    public function setBase($base)
+    {
+        $this->base = $base;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param float $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return TaxType
+     */
+    public function getTaxType()
+    {
+        return $this->taxType;
+    }
+
+    /**
+     * @param TaxType $taxType
+     */
+    public function setTaxType($taxType)
+    {
+        $this->taxType = $taxType;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTax()
+    {
+        return $this->tax;
+    }
+
+    /**
+     * @param float $tax
+     */
+    public function setTax($tax)
+    {
+        $this->tax = $tax;
+    }
+
+    /**
+     * @return FuelSurchargeType
+     */
+    public function getFuelSurchargeType()
+    {
+        return $this->fuelSurchargeType;
+    }
+
+    /**
+     * @param FuelSurchargeType $fuelSurchargeType
+     */
+    public function setFuelSurchargeType($fuelSurchargeType)
+    {
+        $this->fuelSurchargeType = $fuelSurchargeType;
+    }
+
+    /**
+     * @return float
+     */
+    public function getFuelSurcharge()
+    {
+        return $this->fuelSurcharge;
+    }
+
+    /**
+     * @param float $fuelSurcharge
+     */
+    public function setFuelSurcharge($fuelSurcharge)
+    {
+        $this->fuelSurcharge = $fuelSurcharge;
+    }
+
+    /**
+     * @return Zone
+     */
+    public function getZone()
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param Zone $zone
+     */
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
 }

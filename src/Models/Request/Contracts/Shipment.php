@@ -25,7 +25,7 @@ interface Shipment extends \JsonSerializable
     public function setWeight($weight);
 
     /**
-     * @return string
+     * @return Address
      */
     public function getToAddress();
 
@@ -35,7 +35,7 @@ interface Shipment extends \JsonSerializable
     public function setToAddress($toAddress);
 
     /**
-     * @return string
+     * @return Packaging
      */
     public function getPackaging();
 
