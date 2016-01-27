@@ -1,8 +1,10 @@
 <?php
+
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Carrier {
+interface Carrier
+{
 
     /**
      * @return int

@@ -2,7 +2,9 @@
 
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
-interface Continent {
+
+interface Continent
+{
 
     /**
      * @return int

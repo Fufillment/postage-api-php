@@ -2,6 +2,7 @@
 
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
+
 interface DistanceType
 {
 

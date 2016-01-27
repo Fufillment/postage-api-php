@@ -29,42 +29,48 @@ class Provider implements ProviderContract, \JsonSerializable
     /**
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
     }
 
     /**
      * @return string
      */
-    public function getSymbol() {
+    public function getSymbol()
+    {
         return $this->symbol;
     }
 
     /**
      * @param string $symbol
      */
-    public function setSymbol($symbol) {
+    public function setSymbol($symbol)
+    {
         $this->symbol = $symbol;
     }
 

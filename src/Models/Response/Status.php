@@ -5,7 +5,8 @@ namespace Fulfillment\Postage\Models\Response;
 use Fulfillment\Postage\Models\Response\Contracts\Status as StatusContract;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 
-class Status implements StatusContract, \JsonSerializable {
+class Status implements StatusContract, \JsonSerializable
+{
 
     use SimpleSerializable;
 
@@ -71,4 +72,5 @@ class Status implements StatusContract, \JsonSerializable {
     {
         $this->statusType = $statusType;
     }
+
 }

@@ -3,7 +3,8 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Status {
+interface Status
+{
 
     /**
      * @return int

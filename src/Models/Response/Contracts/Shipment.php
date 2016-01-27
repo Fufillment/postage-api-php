@@ -2,7 +2,9 @@
 
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
-interface Shipment {
+
+interface Shipment
+{
 
     /**
      * @return int

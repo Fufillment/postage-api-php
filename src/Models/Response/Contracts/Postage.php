@@ -1,7 +1,7 @@
 <?php
+
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
-use DateTime;
 
 interface Postage
 {

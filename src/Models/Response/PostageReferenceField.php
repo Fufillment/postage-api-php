@@ -11,7 +11,6 @@ class PostageReferenceField implements PostageReferenceFieldContract, \JsonSeria
     use SimpleSerializable;
 
 
-
     /**
      * @var int
      */

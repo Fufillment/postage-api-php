@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Fulfillment\Postage\Models\Response;
 
 use Fulfillment\Postage\Models\Response\Contracts\Rate as RateContract;

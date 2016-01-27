@@ -28,7 +28,7 @@ $referenceFields = new ReferenceFields([
 ]);
 
 $address = new Address([
-    'name'                  =>  'James Weston',
+    'name'                  =>  'J',
     'street1'               =>  '31 Sandy Beach Rd',
     'city'                  =>  'Auburn',
     'stateProvince'         =>  'ME',
@@ -54,8 +54,13 @@ $postageObj = new Postage([
 
 $client = new PostageClient(__DIR__.'/../');
 
-$postageResponse = $client->postage->createPostage($postageObj);
-print_r($postageResponse);
 
-$voidResponse = $client->postage->voidPostage($postageResponse->getId());
-print_r($voidResponse);
+try {
+    $postageResponse = $client->postage->createPostage($postageObj);
+} catch (\Exception $ex) {
+    print_r($ex);
+}
+//  print_r($postageResponse);
+
+//  $voidResponse = $client->postage->voidPostage($postageResponse->getId());
+//  print_r($voidResponse);

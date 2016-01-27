@@ -1,5 +1,6 @@
-<?php namespace Fulfillment\Postage\Models\Response\Contracts;
+<?php
 
+namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
 interface FuelSurchargeType

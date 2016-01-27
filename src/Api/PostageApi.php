@@ -13,6 +13,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class PostageApi extends ApiRequestBase
 {
+
     /**
      * @param PostageContract|array $postage
      * @param bool|true             $validateRequest
@@ -28,20 +29,7 @@ class PostageApi extends ApiRequestBase
         try {
             $json = $this->apiClient->post('postage', $postage);
         } catch (RequestException $e) {
-            //use a more descriptive error if possible
-            $error = RequestParser::parseError($e);
-            $message = ArrayUtil::get($error['message']);
-            $pException = PostageValidationExceptionFactory::fromErrorCode(RequestParser::getErrorCode($e), $message);
-            if (!is_null($pException)) {
-                throw $pException;
-            } else{
-                $pException = PostageValidationExceptionFactory::fromErrorMessage($message, ArrayUtil::get($error['validationErrors']));
-                if(!is_null($pException)){
-                    throw $pException;
-                } else {
-                    throw $e;
-                }
-            }
+            throw $e;
         }
 
         return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new ResponsePostage()));

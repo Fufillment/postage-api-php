@@ -2,7 +2,9 @@
 
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
-interface Country {
+
+interface Country
+{
 
     /**
      * @return int

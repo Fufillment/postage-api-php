@@ -1,4 +1,5 @@
 <?php
+
 namespace Fulfillment\Postage\Models\Response;
 
 use Fulfillment\Postage\Models\Response\Contracts\Client as ClientContract;
@@ -23,28 +24,32 @@ class Client implements ClientContract, \JsonSerializable
     /**
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
      * @param int $id
      */
-    public function setId($id) {
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
     }
 

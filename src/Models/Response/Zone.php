@@ -1,4 +1,5 @@
 <?php
+
 namespace Fulfillment\Postage\Models\Response;
 
 use Fulfillment\Postage\Models\Response\Contracts\Zone as ZoneContract;
@@ -35,7 +36,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function getId()
     {
-
+        return $this->id;
     }
 
     /**
@@ -43,7 +44,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function setId($id)
     {
-
+        $this->id = $id;
     }
 
     /**
@@ -51,7 +52,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function getName()
     {
-
+        return $this->name;
     }
 
     /**
@@ -59,7 +60,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function setName($name)
     {
-
+        $this->name = $name;
     }
 
     /**
@@ -67,7 +68,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function getCarrier()
     {
-
+        return $this->carrier;
     }
 
 
@@ -76,7 +77,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function setCarrier($carrier)
     {
-
+        $this->carrier = $carrier;
     }
 
     /**
@@ -84,7 +85,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function getZoneRegion()
     {
-
+        return $this->zoneRegion;
     }
 
 
@@ -93,7 +94,7 @@ class Zone implements ZoneContract, \JsonSerializable
      */
     public function setZoneRegion($zoneRegion)
     {
-
+        $this->zoneRegion = $zoneRegion;
     }
 
 }
