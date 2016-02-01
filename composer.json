@@ -11,6 +11,9 @@
   "authors":[
     {
       "name": "Matt Duncan"
+    },
+    {
+      "name": "James Weston"
     }
   ],
   "require": {

@@ -22,13 +22,13 @@ $comItem = new CommodityItem([
 ]);
 
 $referenceFields = new ReferenceFields([
-    'shipperReference'      =>  '1111',
+    'shipperReference'      =>   1111,
     'consigneeReference'    =>  '2222',
     'reference1'            =>  '3333',
 ]);
 
 $address = new Address([
-    'name'                  =>  'J',
+    'name'                  =>  'James Weston',
     'street1'               =>  '31 Sandy Beach Rd',
     'city'                  =>  'Auburn',
     'stateProvince'         =>  'ME',
@@ -56,12 +56,9 @@ $client = new PostageClient(__DIR__.'/../');
 
 
 try {
-    $postageResponse = $client->postage->postageVoid(50);
+    $postageResponse = $client->postage->postageCreate($postageObj, true);
     var_dump($postageResponse);
 } catch (\Exception $ex) {
     print_r($ex);
 }
-//  print_r($postageResponse);
 
-//  $voidResponse = $client->postage->voidPostage($postageResponse->getId());
-//  print_r($voidResponse);
