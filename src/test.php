@@ -56,7 +56,8 @@ $client = new PostageClient(__DIR__.'/../');
 
 
 try {
-    $postageResponse = $client->postage->createPostage($postageObj);
+    $postageResponse = $client->postage->postageVoid(50);
+    var_dump($postageResponse);
 } catch (\Exception $ex) {
     print_r($ex);
 }

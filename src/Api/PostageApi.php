@@ -2,9 +2,6 @@
 
 namespace Fulfillment\Postage\Api;
 
-use FoxxMD\Utilities\ArrayUtil;
-use Fulfillment\Api\Utilities\RequestParser;
-use Fulfillment\Postage\Exceptions\Factories\PostageValidationExceptionFactory;
 use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Exceptions\ClientValidationException;
 use Fulfillment\Postage\Models\Response\Contracts\Postage;
@@ -22,7 +19,7 @@ class PostageApi extends ApiRequestBase
      * @throws \Fulfillment\Postage\Exceptions\PostageException|null
      * @throws \JsonMapper_Exception
      */
-    public function createPostage($postage, $validateRequest = true)
+    public function postageCreate($postage, $validateRequest = true)
     {
         $this->tryValidation($postage, $validateRequest);
 
@@ -40,11 +37,17 @@ class PostageApi extends ApiRequestBase
      *
      * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself that should be voided
      */
-    public function voidPostage($postage)
+    public function postageVoid($postage)
     {
         $id = $this->getPostageId($postage);
 
-        $this->apiClient->delete("postage/$id");
+        try {
+            $json = $this->apiClient->delete("postage/$id");
+        } catch (RequestException $e) {
+            throw $e;
+        }
+
+        return $json;
     }
 
     /**
@@ -54,11 +57,16 @@ class PostageApi extends ApiRequestBase
      *
      * @return array|ResponsePostage
      */
-    public function getPostage($postage)
+    public function postageGet($postage)
     {
         $id = $this->getPostageId($postage);
 
-        $json = $this->apiClient->get("postage/$id");
+        try {
+            $json = $this->apiClient->get("postage/$id");
+        } catch (RequestException $e) {
+            throw $e;
+        }
+
 
         return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new ResponsePostage()));
     }
@@ -71,7 +79,7 @@ class PostageApi extends ApiRequestBase
      * @return mixed
      * @throws \Exception
      */
-    public function getPostageLabel($postage, $documentType, $destination = 'response')
+    public function postageLabelGet($postage, $documentType, $destination = 'response')
     {
         if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');
