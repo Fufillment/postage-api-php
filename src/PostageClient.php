@@ -13,6 +13,7 @@ use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
 use Fulfillment\Postage\Api\PostageApi;
+use Fulfillment\Postage\Api\ZonesApi;
 use League\CLImate\CLImate;
 
 date_default_timezone_set('Europe/London');
@@ -79,8 +80,9 @@ class PostageClient
             'scope' => 'postage'
         ]);
 
-        $apiClient = new Api($apiConfig);
+        $apiClient     = new Api($apiConfig);
         $this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
+        $this->zones   = new ZonesApi($apiClient, $this->jsonOnly, $this->requestValidation);
         //instantiate api
     }
 
