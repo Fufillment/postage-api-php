@@ -46,39 +46,44 @@ class PostageClient
                 Dotenv::required(['API_ENDPOINT']);
 
             }
-            $username          = getenv('USERNAME') ?: null;
-            $password          = getenv('PASSWORD') ?: null;
-            $clientId          = getenv('CLIENT_ID') ?: null;
-            $clientSecret      = getenv('CLIENT_SECRET') ?: null;
-            $accessToken       = getenv('ACCESS_TOKEN') ?: null;
-            $endpoint          = getenv('API_ENDPOINT') ?: null;
-            $authEndpoint      = getenv('AUTH_ENDPOINT') ?: null;
+            $username                = getenv('USERNAME') ?: null;
+            $password                = getenv('PASSWORD') ?: null;
+            $clientId                = getenv('CLIENT_ID') ?: null;
+            $clientSecret            = getenv('CLIENT_SECRET') ?: null;
+            $accessToken             = getenv('ACCESS_TOKEN') ?: null;
+            $endpoint                = getenv('API_ENDPOINT') ?: null;
+            $authEndpoint            = getenv('AUTH_ENDPOINT') ?: null;
+            $storageTokenPrefix      = getenv('STORAGE_TOKEN_PREFIX') ?: null;
             $this->jsonOnly          = getenv('JSON_ONLY') ?: false;
             $this->requestValidation = getenv('VALIDATE_REQUESTS') ?: true;
-        } else if (is_array($config)) {
-            $username          = ArrayUtil::get($config['username']);
-            $password          = ArrayUtil::get($config['password']);
-            $clientId          = ArrayUtil::get($config['clientId']);
-            $clientSecret      = ArrayUtil::get($config['clientSecret']);
-            $accessToken       = ArrayUtil::get($config['accessToken']);
-            $endpoint          = ArrayUtil::get($config['endpoint']);
-            $authEndpoint      = ArrayUtil::get($config['authEndpoint']);
-            $this->jsonOnly          = ArrayUtil::get($config['jsonOnly'], false);
-            $this->requestValidation = ArrayUtil::get($config['validateRequests'], true);
         } else {
-            throw new \InvalidArgumentException('A configuration must be provided');
+            if (is_array($config)) {
+                $username                = ArrayUtil::get($config['username']);
+                $password                = ArrayUtil::get($config['password']);
+                $clientId                = ArrayUtil::get($config['clientId']);
+                $clientSecret            = ArrayUtil::get($config['clientSecret']);
+                $accessToken             = ArrayUtil::get($config['accessToken']);
+                $endpoint                = ArrayUtil::get($config['endpoint']);
+                $authEndpoint            = ArrayUtil::get($config['authEndpoint']);
+                $storageTokenPrefix      = ArrayUtil::get($config['storageTokenPrefix']);
+                $this->jsonOnly          = ArrayUtil::get($config['jsonOnly'], false);
+                $this->requestValidation = ArrayUtil::get($config['validateRequests'], true);
+            } else {
+                throw new \InvalidArgumentException('A configuration must be provided');
+            }
         }
 
         $apiConfig = new ApiConfiguration([
-            'username' => $username,
-            'password' => $password,
-            'clientId' => $clientId,
-            'clientSecret' => $clientSecret,
-            'accessToken' => $accessToken,
-            'endpoint' => $endpoint,
-            'authEndpoint' => $authEndpoint,
-            'scope' => 'postage'
-        ]);
+                                              'username'           => $username,
+                                              'password'           => $password,
+                                              'clientId'           => $clientId,
+                                              'clientSecret'       => $clientSecret,
+                                              'accessToken'        => $accessToken,
+                                              'endpoint'           => $endpoint,
+                                              'authEndpoint'       => $authEndpoint,
+                                              'storageTokenPrefix' => $storageTokenPrefix,
+                                              'scope'              => 'postage'
+                                          ]);
 
         $apiClient     = new Api($apiConfig);
         $this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
