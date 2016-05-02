@@ -13,6 +13,7 @@ use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
 use Fulfillment\Postage\Api\PostageApi;
+use Fulfillment\Postage\Api\RatesApi;
 use Fulfillment\Postage\Api\ZonesApi;
 use League\CLImate\CLImate;
 
@@ -88,6 +89,7 @@ class PostageClient
         $apiClient     = new Api($apiConfig);
         $this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
         $this->zones   = new ZonesApi($apiClient, $this->jsonOnly, $this->requestValidation);
+        $this->rates   = new RatesApi($apiClient, $this->jsonOnly, $this->requestValidation);
         //instantiate api
     }
 
