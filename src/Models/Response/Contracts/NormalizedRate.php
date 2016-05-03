@@ -33,6 +33,11 @@ interface NormalizedRate
     public function getBasePrice();
 
     /**
+     * @return float
+     */
+    public function getBaseSignaturePrice();
+
+    /**
      * @return PriceGroup
      * 
      */

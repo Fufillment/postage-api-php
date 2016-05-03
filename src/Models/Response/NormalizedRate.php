@@ -32,6 +32,11 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     public $basePrice;
 
     /**
+     * @var float
+     */
+    public $baseSignaturePrice;
+
+    /**
      * @var Date
      */
     public $activeAt;
@@ -101,6 +106,14 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     public function getBasePrice()
     {
         return $this->basePrice;
+    }
+
+    /**
+     * @return float
+     */
+    public function getBaseSignaturePrice()
+    {
+        return $this->baseSignaturePrice;
     }
 
     /**
