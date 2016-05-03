@@ -32,7 +32,7 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     public $basePrice;
 
     /**
-     * @var \DateTime
+     * @var Date
      */
     public $activeAt;
 
@@ -152,7 +152,7 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     }
 
     /**
-     * @return \DateTime
+     * @return Date
      */
     public function getActiveAt()
     {
