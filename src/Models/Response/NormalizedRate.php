@@ -37,7 +37,7 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     public $baseSignaturePrice;
 
     /**
-     * @var Date
+     * @var \DateTime
      */
     public $activeAt;
 
@@ -165,11 +165,23 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable
     }
 
     /**
-     * @return Date
+     * @return \DateTime
      */
     public function getActiveAt()
     {
         return $this->activeAt;
+    }
+
+    /**
+     * Set the DateTime this Rate is active from.
+     *
+     * Note: Used only for JsonMapper in order to properly set a DateTime, no real use
+     *
+     * @param mixed
+     *
+     */
+    public function setActiveAt($object) {
+        $this->activeAt = new \DateTime($object->date);
     }
 
     /**

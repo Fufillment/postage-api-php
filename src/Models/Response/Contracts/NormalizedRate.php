@@ -69,7 +69,7 @@ interface NormalizedRate
     public function getCurrency();
 
     /**
-     * @return Date
+     * @return \DateTime
      */
     public function getActiveAt();
 
