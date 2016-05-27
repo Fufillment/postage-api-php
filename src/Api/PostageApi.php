@@ -75,11 +75,12 @@ class PostageApi extends ApiRequestBase
      * @param int|ResponsePostage $postage      Either the Id of the object or the Postage object
      * @param string              $documentType The label document to use for the label
      * @param string              $destination  Where the label should be printed to. Default is to only return the generated label
+     * @param   string  $output     The output that should be provided (eg Generic.Postscript)
      *
      * @return mixed
      * @throws \Exception
      */
-    public function postageLabelGet($postage, $documentType, $destination = 'response')
+    public function postageLabelGet($postage, $documentType, $destination = 'response', $output = null)
     {
         if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');
@@ -88,7 +89,7 @@ class PostageApi extends ApiRequestBase
         }
         $id = $this->getPostageId($postage);
 
-        $response = $this->apiClient->get("postage/$id/label", ['documentId' => $documentType, 'destinationId' => $destination]);
+        $response = $this->apiClient->get("postage/$id/label", ['documentId' => $documentType, 'destinationId' => $destination, 'output' => $output]);
 
         return $response;
     }
