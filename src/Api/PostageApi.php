@@ -14,17 +14,20 @@ class PostageApi extends ApiRequestBase
     /**
      * @param PostageContract|array $postage
      * @param bool|true             $validateRequest
+     * @param null|object           $queryString
+     *
      * @return array|ResponsePostage
+     *
      * @throws ClientValidationException
      * @throws \Fulfillment\Postage\Exceptions\PostageException|null
      * @throws \JsonMapper_Exception
      */
-    public function postageCreate($postage, $validateRequest = true)
+    public function postageCreate($postage, $validateRequest = true, $queryString = null)
     {
         $this->tryValidation($postage, $validateRequest);
 
         try {
-            $json = $this->apiClient->post('postage', $postage);
+            $json = $this->apiClient->post('postage', $postage, $queryString);
         } catch (RequestException $e) {
             throw $e;
         }
@@ -36,13 +39,16 @@ class PostageApi extends ApiRequestBase
      * Void a Postage
      *
      * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself that should be voided
+     * @param null|object         $queryString
+     *
+     * @return object|string
      */
-    public function postageVoid($postage)
+    public function postageVoid($postage, $queryString = null)
     {
         $id = $this->getPostageId($postage);
 
         try {
-            $json = $this->apiClient->delete("postage/$id");
+            $json = $this->apiClient->delete("postage/$id", $queryString);
         } catch (RequestException $e) {
             throw $e;
         }
@@ -54,15 +60,16 @@ class PostageApi extends ApiRequestBase
      * Get a Postage object
      *
      * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself to get
+     * @param null|object         $queryString
      *
      * @return array|ResponsePostage
      */
-    public function postageGet($postage)
+    public function postageGet($postage, $queryString = null)
     {
         $id = $this->getPostageId($postage);
 
         try {
-            $json = $this->apiClient->get("postage/$id");
+            $json = $this->apiClient->get("postage/$id", $queryString);
         } catch (RequestException $e) {
             throw $e;
         }
@@ -81,7 +88,7 @@ class PostageApi extends ApiRequestBase
      * @return mixed
      * @throws \Exception
      */
-    public function postageLabelGet($postage, $documentType, $destination = 'response', $output = null, $stock = null)
+    public function postageLabelGet($postage, $documentType, $destination = 'response', $output = null, $stock = null, $queryString = null)
     {
         if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');
@@ -90,7 +97,15 @@ class PostageApi extends ApiRequestBase
         }
         $id = $this->getPostageId($postage);
 
-        $response = $this->apiClient->get("postage/$id/label", ['documentId' => $documentType, 'destinationId' => $destination, 'output' => $output, 'stock' => $stock]);
+        $queryBuilder = [
+            'documentId'    => $documentType,
+            'destinationId' => $destination,
+            'output'        => $output,
+            'stock'         => $stock,
+        ];
+        $queryString  = array_merge($queryString, $queryBuilder);
+
+        $response = $this->apiClient->get("postage/$id/label", $queryString);
 
         return $response;
     }
