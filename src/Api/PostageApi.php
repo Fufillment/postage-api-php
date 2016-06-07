@@ -103,9 +103,9 @@ class PostageApi extends ApiRequestBase
             'output'        => $output,
             'stock'         => $stock,
         ];
-        $queryString = (object) array_merge((array) $queryString, (array) $queryBuilder);
+        //$queryString = (object) array_merge((array) $queryString, (array) $queryBuilder);
 
-        $response = $this->apiClient->get("postage/$id/label", $queryString);
+        $response = $this->apiClient->get("postage/$id/label", $queryBuilder);
 
         return $response;
     }
