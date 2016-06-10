@@ -20,6 +20,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable
         $this->currency                         =   ArrayUtil::get($data['currency']);
         $this->weightType                       =   ArrayUtil::get($data['weightType']);
         $this->code                             =   ArrayUtil::get($data['code']);
+        $this->name                             =   ArrayUtil::get($data['name']);
         $this->description                      =   ArrayUtil::get($data['description'], 'E-Commerce Online Purchase');
         $this->quantity                         =   ArrayUtil::get($data['quantity']);
         $this->unitValue                        =   ArrayUtil::get($data['unitValue']);
@@ -37,6 +38,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable
             v::attribute('currency',                v::string()->notEmpty()),
             v::attribute('weightType',              v::string()->notEmpty()),
             v::attribute('code',                    v::string()->notEmpty()),
+            v::attribute('name',                    v::string()->notEmpty()),
             v::attribute('quantity',                v::numeric()->positive()->notEmpty()),
             v::attribute('unitValue',               v::numeric()->positive()->notEmpty()),
             v::attribute('unitWeight',              v::numeric()->positive()->notEmpty()),

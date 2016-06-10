@@ -10,6 +10,16 @@ abstract class BaseCommodityItem implements CommodityItemContract
     /**
      * @var string
      */
+    protected $name;
+
+    /**
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * @var string
+     */
     protected $fromCountry;
 
     /**
@@ -20,17 +30,7 @@ abstract class BaseCommodityItem implements CommodityItemContract
     /**
      * @var string
      */
-    protected $weightType;
-
-    /**
-     * @var string
-     */
     protected $code;
-
-    /**
-     * @var string
-     */
-    protected $description;
 
     /**
      * @var integer
@@ -46,6 +46,11 @@ abstract class BaseCommodityItem implements CommodityItemContract
      * @var float
      */
     protected $unitWeight;
+
+    /**
+     * @var string
+     */
+    protected $weightType;
 
     /**
      * @var integer

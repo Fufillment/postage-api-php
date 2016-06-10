@@ -88,7 +88,7 @@ class PostageApi extends ApiRequestBase
      * @return mixed
      * @throws \Exception
      */
-    public function postageLabelGet($postage, $documentType, $destination = 'response', $output = null, $stock = null, $queryString = null)
+    public function postageLabelGet($postage, $documentType, $destination = 'response', $output = null, $stock = null, $queryString = [])
     {
         if (is_null($documentType)) {
             throw new \Exception('Must specify a document type');
@@ -103,9 +103,9 @@ class PostageApi extends ApiRequestBase
             'output'        => $output,
             'stock'         => $stock,
         ];
-        //$queryString = (object) array_merge((array) $queryString, (array) $queryBuilder);
+        $queryString = array_merge((array) $queryString, (array) $queryBuilder);
 
-        $response = $this->apiClient->get("postage/$id/label", $queryBuilder);
+        $response = $this->apiClient->get("postage/$id/label", $queryString);
 
         return $response;
     }

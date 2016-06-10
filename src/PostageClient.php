@@ -75,16 +75,16 @@ class PostageClient
         }
 
         $apiConfig = new ApiConfiguration([
-                                              'username'           => $username,
-                                              'password'           => $password,
-                                              'clientId'           => $clientId,
-                                              'clientSecret'       => $clientSecret,
-                                              'accessToken'        => $accessToken,
-                                              'endpoint'           => $endpoint,
-                                              'authEndpoint'       => $authEndpoint,
-                                              'storageTokenPrefix' => $storageTokenPrefix,
-                                              'scope'              => 'postage'
-                                          ]);
+            'username'           => $username,
+            'password'           => $password,
+            'clientId'           => $clientId,
+            'clientSecret'       => $clientSecret,
+            'accessToken'        => $accessToken,
+            'endpoint'           => $endpoint,
+            'authEndpoint'       => $authEndpoint,
+            'storageTokenPrefix' => $storageTokenPrefix,
+            'scope'              => 'postage'
+        ]);
 
         $apiClient     = new Api($apiConfig);
         $this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
