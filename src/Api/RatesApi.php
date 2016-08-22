@@ -8,8 +8,7 @@ use Fulfillment\Postage\Models\Response\NormalizedRate;
 use Fulfillment\Postage\Models\Response\PriceGroup;
 use Fulfillment\Postage\Models\Response\Rate;
 
-class RatesApi extends ApiRequestBase
-{
+class RatesApi extends ApiRequestBase {
     /**
      * Get an array of PriceGroup objects based on service, desination, and weight.
      *
@@ -27,11 +26,12 @@ class RatesApi extends ApiRequestBase
     {
         $queryString = ['serviceId' => $serviceId, 'destinationCountryISO2' => $destinationIso2, 'weight' => $weight, 'weightTypeId' => $weightTypeId];
 
-        if(!is_null($zoneName)) {
+        if (!is_null($zoneName))
+        {
             $queryString['zoneName'] = $zoneName;
         }
-        $json = $this->apiClient->get("rates/priceGroups/shipment" , $queryString);
+        $json = $this->apiClient->get("rates/priceGroups/shipment", $queryString);
 
-        return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, array(), new NormalizedRate()));
+        return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new NormalizedRate()));
     }
 }

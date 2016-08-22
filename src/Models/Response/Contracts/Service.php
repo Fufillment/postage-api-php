@@ -3,67 +3,66 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Service
-{
+interface Service {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return string
-     */
-    public function getName();
+	/**
+	 * @return string
+	 */
+	public function getName();
 
-    /**
-     * @param string $name
-     */
-    public function setName($name);
+	/**
+	 * @param string $name
+	 */
+	public function setName($name);
 
-    /**
-     * @return string
-     */
-    public function getSymbol();
+	/**
+	 * @return string
+	 */
+	public function getSymbol();
 
-    /**
-     * @param string $symbol
-     */
-    public function setSymbol($symbol);
+	/**
+	 * @param string $symbol
+	 */
+	public function setSymbol($symbol);
 
-    /**
-     * @return string
-     */
-    public function getDescription();
+	/**
+	 * @return string
+	 */
+	public function getDescription();
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description);
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description);
 
-    /**
-     * @return boolean
-     */
-    public function getRequiresCustoms();
+	/**
+	 * @return boolean
+	 */
+	public function getRequiresCustoms();
 
-    /**
-     * @param boolean $requiresCustoms
-     */
-    public function setRequiresCustoms($requiresCustoms);
+	/**
+	 * @param boolean $requiresCustoms
+	 */
+	public function setRequiresCustoms($requiresCustoms);
 
-    /**
-     * @return Carrier
-     */
-    public function getCarrier();
+	/**
+	 * @return Carrier
+	 */
+	public function getCarrier();
 
-    /**
-     * @param Carrier $carrier
-     */
-    public function setCarrier($carrier);
+	/**
+	 * @param Carrier $carrier
+	 */
+	public function setCarrier($carrier);
 
 }

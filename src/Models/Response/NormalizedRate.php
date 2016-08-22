@@ -7,188 +7,188 @@ use Fulfillment\Postage\Models\Response\Contracts\NormalizedRate as NormalizedRa
 use Fulfillment\Postage\Models\Response\Contracts\PriceGroup;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 
-class NormalizedRate implements NormalizedRateContract, \JsonSerializable
-{
-    use SimpleSerializable;
-    
-    /**
-     * @var float 
-     */
-    public $weight;
+class NormalizedRate implements NormalizedRateContract, \JsonSerializable {
+	use SimpleSerializable;
 
-    /**
-     * @var float
-     */
-    public $minWeight;
+	/**
+	 * @var float
+	 */
+	public $weight;
 
-    /**
-     * @var float
-     */
-    public $maxWeight;
+	/**
+	 * @var float
+	 */
+	public $minWeight;
 
-    /**
-     * @var float
-     */
-    public $basePrice;
+	/**
+	 * @var float
+	 */
+	public $maxWeight;
 
-    /**
-     * @var float
-     */
-    public $baseSignaturePrice;
+	/**
+	 * @var float
+	 */
+	public $basePrice;
 
-    /**
-     * @var \DateTime
-     */
-    public $activeAt;
+	/**
+	 * @var float
+	 */
+	public $baseSignaturePrice;
 
-    /**
-     * @var PriceGroup
-     */
-    public $priceGroup;
+	/**
+	 * @var \DateTime
+	 */
+	public $activeAt;
 
-    /**
-     * @var Country
-     */
-    public $toCountry;
+	/**
+	 * @var PriceGroup
+	 */
+	public $priceGroup;
 
-    /**
-     * @var Country
-     */
-    public $fromCountry;
+	/**
+	 * @var Country
+	 */
+	public $toCountry;
 
-    /**
-     * @var Service
-     */
-    public $service;
+	/**
+	 * @var Country
+	 */
+	public $fromCountry;
 
-    /**
-     * @var WeightType
-     */
-    public $weightType;
+	/**
+	 * @var Service
+	 */
+	public $service;
 
-    /**
-     * @var Currency
-     */
-    public $currency;
+	/**
+	 * @var WeightType
+	 */
+	public $weightType;
 
-    /**
-     * @var Zone
-     */
-    public $zone;
+	/**
+	 * @var Currency
+	 */
+	public $currency;
 
-    /**
-     * @return float
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
+	/**
+	 * @var Zone
+	 */
+	public $zone;
 
-    /**
-     * @return float
-     */
-    public function getMinWeight()
-    {
-        return $this->minWeight;
-    }
+	/**
+	 * @return float
+	 */
+	public function getWeight()
+	{
+		return $this->weight;
+	}
 
-    /**
-     * @return float
-     */
-    public function getMaxWeight()
-    {
-        return $this->maxWeight;
-    }
+	/**
+	 * @return float
+	 */
+	public function getMinWeight()
+	{
+		return $this->minWeight;
+	}
 
-    /**
-     * @return float
-     */
-    public function getBasePrice()
-    {
-        return $this->basePrice;
-    }
+	/**
+	 * @return float
+	 */
+	public function getMaxWeight()
+	{
+		return $this->maxWeight;
+	}
 
-    /**
-     * @return float
-     */
-    public function getBaseSignaturePrice()
-    {
-        return $this->baseSignaturePrice;
-    }
+	/**
+	 * @return float
+	 */
+	public function getBasePrice()
+	{
+		return $this->basePrice;
+	}
 
-    /**
-     * @return PriceGroup
-     */
-    public function getPriceGroup()
-    {
-        return $this->priceGroup;
-    }
+	/**
+	 * @return float
+	 */
+	public function getBaseSignaturePrice()
+	{
+		return $this->baseSignaturePrice;
+	}
 
-    /**
-     * @return Country
-     */
-    public function getFromCountry()
-    {
-        return $this->fromCountry;
-    }
+	/**
+	 * @return PriceGroup
+	 */
+	public function getPriceGroup()
+	{
+		return $this->priceGroup;
+	}
 
-    /**
-     * @return Country
-     */
-    public function getToCountry()
-    {
-        return $this->toCountry;
-    }
+	/**
+	 * @return Country
+	 */
+	public function getFromCountry()
+	{
+		return $this->fromCountry;
+	}
 
-    /**
-     * @return Service
-     */
-    public function getService()
-    {
-        return $this->service;
-    }
+	/**
+	 * @return Country
+	 */
+	public function getToCountry()
+	{
+		return $this->toCountry;
+	}
 
-    /**
-     * @return WeightType
-     */
-    public function getWeightType()
-    {
-        return $this->weightType;
-    }
+	/**
+	 * @return Service
+	 */
+	public function getService()
+	{
+		return $this->service;
+	}
 
-    /**
-     * @return Currency
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
+	/**
+	 * @return WeightType
+	 */
+	public function getWeightType()
+	{
+		return $this->weightType;
+	}
 
-    /**
-     * @return \DateTime
-     */
-    public function getActiveAt()
-    {
-        return $this->activeAt;
-    }
+	/**
+	 * @return Currency
+	 */
+	public function getCurrency()
+	{
+		return $this->currency;
+	}
 
-    /**
-     * Set the DateTime this Rate is active from.
-     *
-     * Note: Used only for JsonMapper in order to properly set a DateTime, no real use
-     *
-     * @param mixed
-     *
-     */
-    public function setActiveAt($object) {
-        $this->activeAt = new \DateTime($object->date);
-    }
+	/**
+	 * @return \DateTime
+	 */
+	public function getActiveAt()
+	{
+		return $this->activeAt;
+	}
 
-    /**
-     * @return Zone
-     */
-    public function getZone()
-    {
-        return $this->zone;
-    }
+	/**
+	 * Set the DateTime this Rate is active from.
+	 *
+	 * Note: Used only for JsonMapper in order to properly set a DateTime, no real use
+	 *
+	 * @param mixed
+	 *
+	 */
+	public function setActiveAt($object)
+	{
+		$this->activeAt = new \DateTime($object->date);
+	}
+
+	/**
+	 * @return Zone
+	 */
+	public function getZone()
+	{
+		return $this->zone;
+	}
 }

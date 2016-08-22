@@ -2,104 +2,103 @@
 
 namespace Fulfillment\Postage\Models\Request\Contracts;
 
-interface CommodityItem extends \JsonSerializable
-{
-    /**
-     * @return string
-     */
-    public function getFromCountry();
+interface CommodityItem extends \JsonSerializable {
+	/**
+	 * @return string
+	 */
+	public function getFromCountry();
 
-    /**
-     * @param string $fromCountry
-     *
-     */
-    public function setFromCountry($fromCountry);
+	/**
+	 * @param string $fromCountry
+	 *
+	 */
+	public function setFromCountry($fromCountry);
 
-    /**
-     * @return string
-     */
-    public function getCurrency();
+	/**
+	 * @return string
+	 */
+	public function getCurrency();
 
-    /**
-     * @param string $currency
-     *
-     */
-    public function setCurrency($currency);
+	/**
+	 * @param string $currency
+	 *
+	 */
+	public function setCurrency($currency);
 
-    /**
-     * @return string
-     */
-    public function getWeightType();
+	/**
+	 * @return string
+	 */
+	public function getWeightType();
 
-    /**
-     * @param string $weightType
-     *
-     */
-    public function setWeightType($weightType);
+	/**
+	 * @param string $weightType
+	 *
+	 */
+	public function setWeightType($weightType);
 
-    /**
-     * @return string
-     */
-    public function getCode();
+	/**
+	 * @return string
+	 */
+	public function getCode();
 
-    /**
-     * @param string $code
-     *
-     */
-    public function setCode($code);
+	/**
+	 * @param string $code
+	 *
+	 */
+	public function setCode($code);
 
-    /**
-     * @return string
-     */
-    public function getDescription();
+	/**
+	 * @return string
+	 */
+	public function getDescription();
 
-    /**
-     * @param string $description
-     *
-     */
-    public function setDescription($description);
+	/**
+	 * @param string $description
+	 *
+	 */
+	public function setDescription($description);
 
-    /**
-     * @return int
-     */
-    public function getQuantity();
+	/**
+	 * @return int
+	 */
+	public function getQuantity();
 
-    /**
-     * @param int $quantity
-     *
-     */
-    public function setQuantity($quantity);
+	/**
+	 * @param int $quantity
+	 *
+	 */
+	public function setQuantity($quantity);
 
-    /**
-     * @return float
-     */
-    public function getUnitValue();
+	/**
+	 * @return float
+	 */
+	public function getUnitValue();
 
-    /**
-     * @param float $unitValue
-     *
-     */
-    public function setUnitValue($unitValue);
+	/**
+	 * @param float $unitValue
+	 *
+	 */
+	public function setUnitValue($unitValue);
 
-    /**
-     * @return float
-     */
-    public function getUnitWeight();
+	/**
+	 * @return float
+	 */
+	public function getUnitWeight();
 
-    /**
-     * @param float $unitWeight
-     *
-     */
-    public function setUnitWeight($unitWeight);
+	/**
+	 * @param float $unitWeight
+	 *
+	 */
+	public function setUnitWeight($unitWeight);
 
-    /**
-     * @return int
-     */
-    public function getTariffNumber();
+	/**
+	 * @return int
+	 */
+	public function getTariffNumber();
 
-    /**
-     * @param int $tariffNumber
-     *
-     */
-    public function setTariffNumber($tariffNumber);
+	/**
+	 * @param int $tariffNumber
+	 *
+	 */
+	public function setTariffNumber($tariffNumber);
 }

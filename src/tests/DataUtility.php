@@ -9,34 +9,35 @@
 namespace Fulfillment\Postage\Tests;
 
 
-class DataUtility
-{
-    public static function requestOrder()
-    {
-        return [
-            'merchantId' => 50001,
-            'orderId' => 'asupertest123',
-            'items' => [
-                ['sku' => 'pizza',
-                    'declaredValue' => 4.20,
-                    'quantity' => 2]
-            ],
-            'recipient' => DataUtility::requestRecipient(),
-            'shippingMethod' => 'USPS'
-        ];
-    }
+class DataUtility {
+	public static function requestOrder()
+	{
+		return [
+			'merchantId'     => 50001,
+			'orderId'        => 'asupertest123',
+			'items'          => [
+				[
+					'sku'           => 'pizza',
+					'declaredValue' => 4.20,
+					'quantity'      => 2,
+				],
+			],
+			'recipient'      => DataUtility::requestRecipient(),
+			'shippingMethod' => 'USPS',
+		];
+	}
 
-    public static function requestRecipient()
-    {
-        return [
-            'firstName' => 'Joe',
-            'lastName' => 'Schmoe',
-            'street1' => '123 Main Street',
-            'city' => 'Nowhereville',
-            'stateProvince' => 'GA',
-            'zip' => '30022',
-            'email' => 'joe@schmoe.com',
-            'country' => 'US'
-        ];
-    }
+	public static function requestRecipient()
+	{
+		return [
+			'firstName'     => 'Joe',
+			'lastName'      => 'Schmoe',
+			'street1'       => '123 Main Street',
+			'city'          => 'Nowhereville',
+			'stateProvince' => 'GA',
+			'zip'           => '30022',
+			'email'         => 'joe@schmoe.com',
+			'country'       => 'US',
+		];
+	}
 }
