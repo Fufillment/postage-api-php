@@ -3,37 +3,36 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Date
-{
+interface Date {
 
-    /**
-     * @return string
-     */
-    public function getDate();
+	/**
+	 * @return string
+	 */
+	public function getDate();
 
-    /**
-     * @param string $date
-     */
-    public function setDate($date);
+	/**
+	 * @param string $date
+	 */
+	public function setDate($date);
 
-    /**
-     * @return int
-     */
-    public function getTimeZoneType();
+	/**
+	 * @return int
+	 */
+	public function getTimeZoneType();
 
-    /**
-     * @param int $timeZoneType
-     */
-    public function setTimeZoneType($timeZoneType);
+	/**
+	 * @param int $timeZoneType
+	 */
+	public function setTimeZoneType($timeZoneType);
 
-    /**
-     * @return string
-     */
-    public function getTimeZone();
+	/**
+	 * @return string
+	 */
+	public function getTimeZone();
 
-    /**
-     * @param string $timeZone
-     */
-    public function setTimeZone($timeZone);
+	/**
+	 * @param string $timeZone
+	 */
+	public function setTimeZone($timeZone);
 
 }

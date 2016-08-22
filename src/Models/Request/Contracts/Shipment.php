@@ -2,75 +2,74 @@
 
 namespace Fulfillment\Postage\Models\Request\Contracts;
 
-interface Shipment extends \JsonSerializable
-{
-    /**
-     * @return string
-     */
-    public function getWeightType();
+interface Shipment extends \JsonSerializable {
+	/**
+	 * @return string
+	 */
+	public function getWeightType();
 
-    /**
-     * @param string $weightType
-     */
-    public function setWeightType($weightType);
+	/**
+	 * @param string $weightType
+	 */
+	public function setWeightType($weightType);
 
-    /**
-     * @return float
-     */
-    public function getWeight();
+	/**
+	 * @return float
+	 */
+	public function getWeight();
 
-    /**
-     * @param float $weight
-     */
-    public function setWeight($weight);
+	/**
+	 * @param float $weight
+	 */
+	public function setWeight($weight);
 
-    /**
-     * @return Address
-     */
-    public function getToAddress();
+	/**
+	 * @return Address
+	 */
+	public function getToAddress();
 
-    /**
-     * @param string $toAddress
-     */
-    public function setToAddress($toAddress);
+	/**
+	 * @param string $toAddress
+	 */
+	public function setToAddress($toAddress);
 
-    /**
-     * @return Packaging
-     */
-    public function getPackaging();
+	/**
+	 * @return Packaging
+	 */
+	public function getPackaging();
 
-    /**
-     * @param string $packaging
-     */
-    public function setPackaging($packaging);
+	/**
+	 * @param string $packaging
+	 */
+	public function setPackaging($packaging);
 
-    /**
-     * @return CommodityItem[]
-     */
-    public function getCommodityItems();
+	/**
+	 * @return CommodityItem[]
+	 */
+	public function getCommodityItems();
 
-    /**
-     * @param CommodityItem[] $commodityItems
-     */
-    public function setCommodityItems($commodityItems);
+	/**
+	 * @param CommodityItem[] $commodityItems
+	 */
+	public function setCommodityItems($commodityItems);
 
-    /**
-     * @param CommodityItem $commodityItem
-     */
-    public function addCommodityItem($commodityItem);
+	/**
+	 * @param CommodityItem $commodityItem
+	 */
+	public function addCommodityItem($commodityItem);
 
-    /**
-     * @param CommodityItem $commodityItem
-     */
-    public function removeCommodityItem($commodityItem);
+	/**
+	 * @param CommodityItem $commodityItem
+	 */
+	public function removeCommodityItem($commodityItem);
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description);
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description);
 
-    /**
-     * @return string
-     */
-    public function getDescription();
+	/**
+	 * @return string
+	 */
+	public function getDescription();
 }

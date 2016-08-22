@@ -3,67 +3,66 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Subdivision
-{
+interface Subdivision {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return string
-     */
-    public function getName();
+	/**
+	 * @return string
+	 */
+	public function getName();
 
-    /**
-     * @param string $name
-     */
-    public function setName($name);
+	/**
+	 * @param string $name
+	 */
+	public function setName($name);
 
-    /**
-     * @return string
-     */
-    public function getSymbol();
+	/**
+	 * @return string
+	 */
+	public function getSymbol();
 
-    /**
-     * @param string $symbol
-     */
-    public function setSymbol($symbol);
+	/**
+	 * @param string $symbol
+	 */
+	public function setSymbol($symbol);
 
-    /**
-     * @return string
-     */
-    public function getLocalSymbol();
+	/**
+	 * @return string
+	 */
+	public function getLocalSymbol();
 
-    /**
-     * @param string $localSymbol
-     */
-    public function setLocalSymbol($localSymbol);
+	/**
+	 * @param string $localSymbol
+	 */
+	public function setLocalSymbol($localSymbol);
 
-    /**
-     * @return SubdivisionType
-     */
-    public function getSubdivisionType();
+	/**
+	 * @return SubdivisionType
+	 */
+	public function getSubdivisionType();
 
-    /**
-     * @param SubdivisionType $subdivisionType
-     */
-    public function setSubdivisionType($subdivisionType);
+	/**
+	 * @param SubdivisionType $subdivisionType
+	 */
+	public function setSubdivisionType($subdivisionType);
 
-    /**
-     * @return Country
-     */
-    public function getCountry();
+	/**
+	 * @return Country
+	 */
+	public function getCountry();
 
-    /**
-     * @param Country $country
-     */
-    public function setCountry($country);
+	/**
+	 * @param Country $country
+	 */
+	public function setCountry($country);
 
 }

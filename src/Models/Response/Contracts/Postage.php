@@ -3,117 +3,116 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Postage
-{
+interface Postage {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return Date
-     */
-    public function getShippedAt();
+	/**
+	 * @return Date
+	 */
+	public function getShippedAt();
 
-    /**
-     * @param Date $shippedAt
-     */
-    public function setShippedAt($shippedAt);
+	/**
+	 * @param Date $shippedAt
+	 */
+	public function setShippedAt($shippedAt);
 
-    /**
-     * @return Service
-     */
-    public function getService();
+	/**
+	 * @return Service
+	 */
+	public function getService();
 
-    /**
-     * @param Service $service
-     */
-    public function setService($service);
+	/**
+	 * @param Service $service
+	 */
+	public function setService($service);
 
-    /**
-     * @return TrackingNumber[]
-     */
-    public function getTrackingNumbers();
+	/**
+	 * @return TrackingNumber[]
+	 */
+	public function getTrackingNumbers();
 
-    /**
-     * @param TrackingNumber[] $trackingNumbers
-     */
-    public function setTrackingNumbers($trackingNumbers);
+	/**
+	 * @param TrackingNumber[] $trackingNumbers
+	 */
+	public function setTrackingNumbers($trackingNumbers);
 
-    /**
-     * @return Status
-     */
-    public function getCurrentStatus();
+	/**
+	 * @return Status
+	 */
+	public function getCurrentStatus();
 
-    /**
-     * @param Status $currentStatus
-     */
-    public function setCurrentStatus($currentStatus);
+	/**
+	 * @param Status $currentStatus
+	 */
+	public function setCurrentStatus($currentStatus);
 
-    /**
-     * @return Rate
-     */
-    public function getRate();
+	/**
+	 * @return Rate
+	 */
+	public function getRate();
 
-    /**
-     * @param Rate $rate
-     */
-    public function setRate($rate);
+	/**
+	 * @param Rate $rate
+	 */
+	public function setRate($rate);
 
-    /**
-     * @return Rate[]
-     */
-    public function getMarkUpRates();
+	/**
+	 * @return Rate[]
+	 */
+	public function getMarkUpRates();
 
-    /**
-     * @param Rate[] $markUpRates
-     */
-    public function setMarkUpRates($markUpRates);
+	/**
+	 * @param Rate[] $markUpRates
+	 */
+	public function setMarkUpRates($markUpRates);
 
-    /**
-     * @return Shipment
-     */
-    public function getShipment();
+	/**
+	 * @return Shipment
+	 */
+	public function getShipment();
 
-    /**
-     * @param Shipment $shipment
-     */
-    public function setShipment($shipment);
+	/**
+	 * @param Shipment $shipment
+	 */
+	public function setShipment($shipment);
 
-    /**
-     * @param User $createdBy
-     */
-    public function setCreatedBy($createdBy);
+	/**
+	 * @param User $createdBy
+	 */
+	public function setCreatedBy($createdBy);
 
-    /**
-     * @param Date $createdAt
-     */
-    public function setCreatedAt($createdAt);
+	/**
+	 * @param Date $createdAt
+	 */
+	public function setCreatedAt($createdAt);
 
-    /**
-     * @return PostageReferenceField[]
-     */
-    public function getPostageReferenceFields();
+	/**
+	 * @return PostageReferenceField[]
+	 */
+	public function getPostageReferenceFields();
 
-    /**
-     * @param PostageReferenceField[] $postageReferenceFields
-     */
-    public function setPostageReferenceFields($postageReferenceFields);
+	/**
+	 * @param PostageReferenceField[] $postageReferenceFields
+	 */
+	public function setPostageReferenceFields($postageReferenceFields);
 
-    /**
-     * @return User
-     */
-    public function getCreatedBy();
+	/**
+	 * @return User
+	 */
+	public function getCreatedBy();
 
-    /**
-     * @return Date
-     */
-    public function getCreatedAt();
+	/**
+	 * @return Date
+	 */
+	public function getCreatedAt();
 
 }

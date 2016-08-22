@@ -3,36 +3,35 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Status
-{
+interface Status {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return Date
-     */
-    public function getCreatedAt();
+	/**
+	 * @return Date
+	 */
+	public function getCreatedAt();
 
-    /**
-     * @param Date $createdAt
-     */
-    public function setCreatedAt($createdAt);
+	/**
+	 * @param Date $createdAt
+	 */
+	public function setCreatedAt($createdAt);
 
-    /**
-     * @return StatusType
-     */
-    public function getStatusType();
+	/**
+	 * @return StatusType
+	 */
+	public function getStatusType();
 
-    /**
-     * @param StatusType $statusType
-     */
-    public function setStatusType($statusType);
+	/**
+	 * @param StatusType $statusType
+	 */
+	public function setStatusType($statusType);
 }

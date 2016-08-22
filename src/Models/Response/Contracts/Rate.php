@@ -3,98 +3,97 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Rate
-{
+interface Rate {
 
-    /**
-     * @return Currency
-     */
-    public function getCurrency();
+	/**
+	 * @return Currency
+	 */
+	public function getCurrency();
 
-    /**
-     * @param Currency $currency
-     */
-    public function setCurrency($currency);
+	/**
+	 * @param Currency $currency
+	 */
+	public function setCurrency($currency);
 
-    /**
-     * @return PriceGroup
-     */
-    public function getPriceGroup();
+	/**
+	 * @return PriceGroup
+	 */
+	public function getPriceGroup();
 
-    /**
-     * @param PriceGroup $priceGroup
-     */
-    public function setPriceGroup($priceGroup);
+	/**
+	 * @param PriceGroup $priceGroup
+	 */
+	public function setPriceGroup($priceGroup);
 
-    /**
-     * @return float
-     */
-    public function getBase();
+	/**
+	 * @return float
+	 */
+	public function getBase();
 
-    /**
-     * @param float $base
-     */
-    public function setBase($base);
+	/**
+	 * @param float $base
+	 */
+	public function setBase($base);
 
-    /**
-     * @return float
-     */
-    public function getTotal();
+	/**
+	 * @return float
+	 */
+	public function getTotal();
 
-    /**
-     * @param float $total
-     */
-    public function setTotal($total);
+	/**
+	 * @param float $total
+	 */
+	public function setTotal($total);
 
-    /**
-     * @return TaxType
-     */
-    public function getTaxType();
+	/**
+	 * @return TaxType
+	 */
+	public function getTaxType();
 
-    /**
-     * @param TaxType $taxType
-     */
-    public function setTaxType($taxType);
+	/**
+	 * @param TaxType $taxType
+	 */
+	public function setTaxType($taxType);
 
-    /**
-     * @return float
-     */
-    public function getTax();
+	/**
+	 * @return float
+	 */
+	public function getTax();
 
-    /**
-     * @param float $tax
-     */
-    public function setTax($tax);
+	/**
+	 * @param float $tax
+	 */
+	public function setTax($tax);
 
-    /**
-     * @return FuelSurchargeType
-     */
-    public function getFuelSurchargeType();
+	/**
+	 * @return FuelSurchargeType
+	 */
+	public function getFuelSurchargeType();
 
-    /**
-     * @param FuelSurchargeType $fuelSurchargeType
-     */
-    public function setFuelSurchargeType($fuelSurchargeType);
+	/**
+	 * @param FuelSurchargeType $fuelSurchargeType
+	 */
+	public function setFuelSurchargeType($fuelSurchargeType);
 
-    /**
-     * @return float
-     */
-    public function getFuelSurcharge();
+	/**
+	 * @return float
+	 */
+	public function getFuelSurcharge();
 
-    /**
-     * @param float $fuelSurcharge
-     */
-    public function setFuelSurcharge($fuelSurcharge);
+	/**
+	 * @param float $fuelSurcharge
+	 */
+	public function setFuelSurcharge($fuelSurcharge);
 
-    /**
-     * @return Zone
-     */
-    public function getZone();
+	/**
+	 * @return Zone
+	 */
+	public function getZone();
 
-    /**
-     * @param Zone $zone
-     */
-    public function setZone($zone);
+	/**
+	 * @param Zone $zone
+	 */
+	public function setZone($zone);
 
 
 }
