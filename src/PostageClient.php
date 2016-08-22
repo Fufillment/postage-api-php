@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: mduncan
- * Date: 8/13/15
- * Time: 2:59 PM
- */
 
 namespace Fulfillment\Postage;
 
@@ -17,7 +11,7 @@ use Fulfillment\Postage\Api\RatesApi;
 use Fulfillment\Postage\Api\ZonesApi;
 use League\CLImate\CLImate;
 
-date_default_timezone_set('Europe/London');
+date_default_timezone_set('UTC');
 
 class PostageClient {
 	public $postage;
@@ -34,9 +28,7 @@ class PostageClient {
 	public function __construct($config)
 	{
 		$this->climate = new CLImate;
-		//defined('STDOUT');
 
-		//parse config
 		if (is_string($config) || is_null($config))
 		{
 			if (!is_null($config))

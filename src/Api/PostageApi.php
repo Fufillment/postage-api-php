@@ -13,7 +13,7 @@ class PostageApi extends ApiRequestBase {
 	/**
 	 * @param PostageContract|array $postage
 	 * @param bool|true             $validateRequest
-	 * @param null|object           $queryString
+	 * @param array|null            $queryString
 	 *
 	 * @return array|ResponsePostage
 	 *
@@ -24,6 +24,7 @@ class PostageApi extends ApiRequestBase {
 	public function postageCreate($postage, $validateRequest = true, $queryString = null)
 	{
 		$this->tryValidation($postage, $validateRequest);
+		$queryString = $this->addDebugParam($queryString);
 
 		try
 		{
@@ -41,13 +42,14 @@ class PostageApi extends ApiRequestBase {
 	 * Void a Postage
 	 *
 	 * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself that should be voided
-	 * @param null|object         $queryString
+	 * @param array|null          $queryString
 	 *
 	 * @return object|string
 	 */
 	public function postageVoid($postage, $queryString = null)
 	{
-		$id = $this->getPostageId($postage);
+		$id          = $this->getPostageId($postage);
+		$queryString = $this->addDebugParam($queryString);
 
 		try
 		{
@@ -65,13 +67,14 @@ class PostageApi extends ApiRequestBase {
 	 * Get a Postage object
 	 *
 	 * @param int|ResponsePostage $postage Either the Id of the object or the Postage object itself to get
-	 * @param null|object         $queryString
+	 * @param array|null          $queryString
 	 *
 	 * @return array|ResponsePostage
 	 */
 	public function postageGet($postage, $queryString = null)
 	{
-		$id = $this->getPostageId($postage);
+		$id          = $this->getPostageId($postage);
+		$queryString = $this->addDebugParam($queryString);
 
 		try
 		{
@@ -92,6 +95,7 @@ class PostageApi extends ApiRequestBase {
 	 * @param string              $destination  Where the label should be printed to. Default is to only return the generated label
 	 * @param string|null         $output       The output that should be provided (eg Generic.Postscript)
 	 * @param string|null         $stock        The stock that should be provided (eg Landscape)
+	 * @param array|null          $queryString
 	 *
 	 * @return mixed
 	 * @throws \Exception
@@ -109,14 +113,16 @@ class PostageApi extends ApiRequestBase {
 		$id = $this->getPostageId($postage);
 
 		$queryBuilder = [
-			'documentId'    => $documentType,
-			'destinationId' => $destination,
-			'output'        => $output,
-			'stock'         => $stock,
+			'documentId'           => $documentType,
+			'destinationId'        => $destination,
+			'output'               => $output,
+			'stock'                => $stock,
+			'XDEBUG_SESSION_START' => 'postage',
 		];
-		//$queryString = (object) array_merge((array) $queryString, (array) $queryBuilder);
+		$queryString  = (is_array($queryString)) ?: [];
+		$queryString  = array_merge($queryString, $queryBuilder);
 
-		$response = $this->apiClient->get("postage/$id/label", $queryBuilder);
+		$response = $this->apiClient->get("postage/$id/label", $queryString);
 
 		return $response;
 	}
@@ -141,5 +147,22 @@ class PostageApi extends ApiRequestBase {
 		}
 
 		return $id;
+	}
+
+	/**
+	 * Adds the the postage param to XDEBUG for easy pass through from one API request to another
+	 *
+	 * @param $queryString
+	 *
+	 * @return array
+	 */
+	private function addDebugParam($queryString)
+	{
+		if (!isset($queryString['XDEBUG_SESSION_START']))
+		{
+			$queryString['XDEBUG_SESSION_START'] = 'postage';
+		}
+
+		return $queryString;
 	}
 }

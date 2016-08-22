@@ -15,11 +15,12 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 
 	public function __construct($data = null)
 	{
+		$this->name         = ArrayUtil::get($data['name']);
+		$this->description  = ArrayUtil::get($data['description'], 'E-Commerce Online Purchase');
 		$this->fromCountry  = ArrayUtil::get($data['fromCountry']);
 		$this->currency     = ArrayUtil::get($data['currency']);
 		$this->weightType   = ArrayUtil::get($data['weightType']);
 		$this->code         = ArrayUtil::get($data['code']);
-		$this->description  = ArrayUtil::get($data['description'], 'E-Commerce Online Purchase');
 		$this->quantity     = ArrayUtil::get($data['quantity']);
 		$this->unitValue    = ArrayUtil::get($data['unitValue']);
 		$this->unitWeight   = ArrayUtil::get($data['unitWeight']);
@@ -32,6 +33,11 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 	public function getValidationRules()
 	{
 		return [
+			// name will become the main descriptor of an item however we are not yet enforcing this server side
+			//v::attribute('name', v::string()->notEmpty()),
+			//v::attribute('description', v::oneOf(v::nullValue(), v::string()->notEmpty())),
+			v::attribute('name', v::oneOf(v::nullValue(), v::string()->notEmpty())),
+			v::attribute('description', v::notEmpty()->string()),
 			v::attribute('fromCountry', v::oneOf(v::nullValue(), v::string()->notEmpty())),
 			v::attribute('currency', v::string()->notEmpty()),
 			v::attribute('weightType', v::string()->notEmpty()),
@@ -39,7 +45,6 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 			v::attribute('quantity', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitValue', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitWeight', v::numeric()->positive()->notEmpty()),
-			v::attribute('description', v::notEmpty()->string()),
 		];
 	}
 }
