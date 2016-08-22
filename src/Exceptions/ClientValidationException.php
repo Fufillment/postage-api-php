@@ -9,19 +9,19 @@
 namespace Fulfillment\Postage\Exceptions;
 
 
-class ClientValidationException extends PostageException
-{
+class ClientValidationException extends PostageException {
 
     public $validationErrors;
     public $context;
 
-    public function __construct($message = null, $errors = array(), \Exception $previous = null, $omsCode = 11)
+    public function __construct($message = null, $errors = [], \Exception $previous = null, $omsCode = 11)
     {
         $this->validationErrors = $errors;
 
         $message = $message ?: 'The requested action failed validation.';
 
-        if(!empty($this->validationErrors)){
+        if (!empty($this->validationErrors))
+        {
             $message .= PHP_EOL;
             $message .= ' Failed tests: ' . PHP_EOL;
         }

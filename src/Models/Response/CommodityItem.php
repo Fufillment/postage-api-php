@@ -5,221 +5,220 @@ namespace Fulfillment\Postage\Models\Response;
 use Fulfillment\Postage\Models\Response\Contracts\CommodityItem as CommodityItemContract;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 
-class CommodityItem implements CommodityItemContract, \JsonSerializable
-{
+class CommodityItem implements CommodityItemContract, \JsonSerializable {
 
-    use SimpleSerializable;
-
-
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var string
-     */
-    protected $code;
-
-    /**
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * @var int
-     */
-    protected $quantity;
-
-    /**
-     * @var float
-     */
-    protected $unitValue;
-
-    /**
-     * @var float
-     */
-    protected $unitWeight;
-
-    /**
-     * @var string
-     */
-    protected $tariffNumber;
-
-    /**
-     * @var Country
-     */
-    protected $fromCountry;
-
-    /**
-     * @var Currency
-     */
-    protected $currency;
-
-    /**
-     * @var WeightType
-     */
-    protected $weightType;
+	use SimpleSerializable;
 
 
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+	/**
+	 * @var int
+	 */
+	protected $id;
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+	/**
+	 * @var string
+	 */
+	protected $code;
 
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
+	/**
+	 * @var string
+	 */
+	protected $description;
 
-    /**
-     * @param string $code
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    }
+	/**
+	 * @var int
+	 */
+	protected $quantity;
 
-    /**
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+	/**
+	 * @var float
+	 */
+	protected $unitValue;
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
+	/**
+	 * @var float
+	 */
+	protected $unitWeight;
 
-    /**
-     * @return int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+	/**
+	 * @var string
+	 */
+	protected $tariffNumber;
 
-    /**
-     * @param int $quantity
-     */
-    public function setQuantity($quantity)
-    {
-        $this->quantity = $quantity;
-    }
+	/**
+	 * @var Country
+	 */
+	protected $fromCountry;
 
-    /**
-     * @return float
-     */
-    public function getUnitValue()
-    {
-        return $this->unitValue;
-    }
+	/**
+	 * @var Currency
+	 */
+	protected $currency;
 
-    /**
-     * @param float $unitValue
-     */
-    public function setUnitValue($unitValue)
-    {
-        $this->unitValue = $unitValue;
-    }
+	/**
+	 * @var WeightType
+	 */
+	protected $weightType;
 
-    /**
-     * @return float
-     */
-    public function getUnitWeight()
-    {
-        return $this->unitWeight;
-    }
 
-    /**
-     * @param float $unitWeight
-     */
-    public function setUnitWeight($unitWeight)
-    {
-        $this->unitWeight = $unitWeight;
-    }
+	/**
+	 * @return int
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
 
-    /**
-     * @return string
-     */
-    public function getTariffNumber()
-    {
-        return $this->tariffNumber;
-    }
+	/**
+	 * @param int $id
+	 */
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
 
-    /**
-     * @param string $tariffNumber
-     */
-    public function setTariffNumber($tariffNumber)
-    {
-        $this->tariffNumber = $tariffNumber;
-    }
+	/**
+	 * @return string
+	 */
+	public function getCode()
+	{
+		return $this->code;
+	}
 
-    /**
-     * @return Country
-     */
-    public function getFromCountry()
-    {
-        return $this->fromCountry;
-    }
+	/**
+	 * @param string $code
+	 */
+	public function setCode($code)
+	{
+		$this->code = $code;
+	}
 
-    /**
-     * @param Country $fromCountry
-     */
-    public function setFromCountry($fromCountry)
-    {
-        $this->fromCountry = $fromCountry;
-    }
+	/**
+	 * @return string
+	 */
+	public function getDescription()
+	{
+		return $this->description;
+	}
 
-    /**
-     * @return Currency
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description)
+	{
+		$this->description = $description;
+	}
 
-    /**
-     * @param Currency $currency
-     */
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-    }
+	/**
+	 * @return int
+	 */
+	public function getQuantity()
+	{
+		return $this->quantity;
+	}
 
-    /**
-     * @return WeightType
-     */
-    public function getWeightType()
-    {
-        return $this->weightType;
-    }
+	/**
+	 * @param int $quantity
+	 */
+	public function setQuantity($quantity)
+	{
+		$this->quantity = $quantity;
+	}
 
-    /**
-     * @param WeightType $weightType
-     */
-    public function setWeightType($weightType)
-    {
-        $this->weightType = $weightType;
-    }
+	/**
+	 * @return float
+	 */
+	public function getUnitValue()
+	{
+		return $this->unitValue;
+	}
+
+	/**
+	 * @param float $unitValue
+	 */
+	public function setUnitValue($unitValue)
+	{
+		$this->unitValue = $unitValue;
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getUnitWeight()
+	{
+		return $this->unitWeight;
+	}
+
+	/**
+	 * @param float $unitWeight
+	 */
+	public function setUnitWeight($unitWeight)
+	{
+		$this->unitWeight = $unitWeight;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTariffNumber()
+	{
+		return $this->tariffNumber;
+	}
+
+	/**
+	 * @param string $tariffNumber
+	 */
+	public function setTariffNumber($tariffNumber)
+	{
+		$this->tariffNumber = $tariffNumber;
+	}
+
+	/**
+	 * @return Country
+	 */
+	public function getFromCountry()
+	{
+		return $this->fromCountry;
+	}
+
+	/**
+	 * @param Country $fromCountry
+	 */
+	public function setFromCountry($fromCountry)
+	{
+		$this->fromCountry = $fromCountry;
+	}
+
+	/**
+	 * @return Currency
+	 */
+	public function getCurrency()
+	{
+		return $this->currency;
+	}
+
+	/**
+	 * @param Currency $currency
+	 */
+	public function setCurrency($currency)
+	{
+		$this->currency = $currency;
+	}
+
+	/**
+	 * @return WeightType
+	 */
+	public function getWeightType()
+	{
+		return $this->weightType;
+	}
+
+	/**
+	 * @param WeightType $weightType
+	 */
+	public function setWeightType($weightType)
+	{
+		$this->weightType = $weightType;
+	}
 
 }

@@ -3,106 +3,105 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface Shipment
-{
+interface Shipment {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return float
-     */
-    public function getWeight();
+	/**
+	 * @return float
+	 */
+	public function getWeight();
 
-    /**
-     * @param float $weight
-     */
-    public function setWeight($weight);
+	/**
+	 * @param float $weight
+	 */
+	public function setWeight($weight);
 
-    /**
-     * @return string
-     */
-    public function getDescription();
+	/**
+	 * @return string
+	 */
+	public function getDescription();
 
-    /**
-     * @param string $description
-     */
-    public function setDescription($description);
+	/**
+	 * @param string $description
+	 */
+	public function setDescription($description);
 
-    /**
-     * @return WeightType
-     */
-    public function getWeightType();
+	/**
+	 * @return WeightType
+	 */
+	public function getWeightType();
 
-    /**
-     * @param WeightType $weightType
-     */
-    public function setWeightType($weightType);
+	/**
+	 * @param WeightType $weightType
+	 */
+	public function setWeightType($weightType);
 
-    /**
-     * @return Shipper
-     */
-    public function getShipper();
+	/**
+	 * @return Shipper
+	 */
+	public function getShipper();
 
-    /**
-     * @param Shipper $shipper
-     */
-    public function setShipper($shipper);
+	/**
+	 * @param Shipper $shipper
+	 */
+	public function setShipper($shipper);
 
-    /**
-     * @return Packaging
-     */
-    public function getPackaging();
+	/**
+	 * @return Packaging
+	 */
+	public function getPackaging();
 
-    /**
-     * @param Packaging $packaging
-     */
-    public function setPackaging($packaging);
+	/**
+	 * @param Packaging $packaging
+	 */
+	public function setPackaging($packaging);
 
-    /**
-     * @return Address
-     */
-    public function getToAddress();
+	/**
+	 * @return Address
+	 */
+	public function getToAddress();
 
-    /**
-     * @param Address $toAddress
-     */
-    public function setToAddress($toAddress);
+	/**
+	 * @param Address $toAddress
+	 */
+	public function setToAddress($toAddress);
 
-    /**
-     * @return Address
-     */
-    public function getFromAddress();
+	/**
+	 * @return Address
+	 */
+	public function getFromAddress();
 
-    /**
-     * @param Address $fromAddress
-     */
-    public function setFromAddress($fromAddress);
+	/**
+	 * @param Address $fromAddress
+	 */
+	public function setFromAddress($fromAddress);
 
-    /**
-     * @return Address
-     */
-    public function getReturnAddress();
+	/**
+	 * @return Address
+	 */
+	public function getReturnAddress();
 
-    /**
-     * @param Address $returnAddress
-     */
-    public function setReturnAddress($returnAddress);
+	/**
+	 * @param Address $returnAddress
+	 */
+	public function setReturnAddress($returnAddress);
 
-    /**
-     * @return CommodityItem[]
-     */
-    public function getCommodityItems();
+	/**
+	 * @return CommodityItem[]
+	 */
+	public function getCommodityItems();
 
-    /**
-     * @param CommodityItem[] $commodityItems
-     */
-    public function setCommodityItems($commodityItems);
+	/**
+	 * @param CommodityItem[] $commodityItems
+	 */
+	public function setCommodityItems($commodityItems);
 }

@@ -4,7 +4,6 @@
 namespace Fulfillment\Postage\Exceptions;
 
 
-class PostageValidationException extends PostageException
-{
+class PostageValidationException extends PostageException {
 
 }

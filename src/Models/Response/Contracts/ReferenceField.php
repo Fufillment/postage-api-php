@@ -3,27 +3,26 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface ReferenceField
-{
+interface ReferenceField {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return string
-     */
-    public function getName();
+	/**
+	 * @return string
+	 */
+	public function getName();
 
-    /**
-     * @param string $name
-     */
-    public function setName($name);
+	/**
+	 * @param string $name
+	 */
+	public function setName($name);
 
 }

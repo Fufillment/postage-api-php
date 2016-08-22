@@ -10,71 +10,70 @@ use Fulfillment\Postage\Models\Response\Service;
 use Fulfillment\Postage\Models\Response\WeightType;
 use Fulfillment\Postage\Models\Response\Zone;
 
-interface NormalizedRate
-{
-    /**
-     * @return float
-     */
-    public function getWeight();
+interface NormalizedRate {
+	/**
+	 * @return float
+	 */
+	public function getWeight();
 
-    /**
-     * @return float
-     */
-    public function getMinWeight();
+	/**
+	 * @return float
+	 */
+	public function getMinWeight();
 
-    /**
-     * @return float
-     */
-    public function getMaxWeight();
+	/**
+	 * @return float
+	 */
+	public function getMaxWeight();
 
-    /**
-     * @return float
-     */
-    public function getBasePrice();
+	/**
+	 * @return float
+	 */
+	public function getBasePrice();
 
-    /**
-     * @return float
-     */
-    public function getBaseSignaturePrice();
+	/**
+	 * @return float
+	 */
+	public function getBaseSignaturePrice();
 
-    /**
-     * @return PriceGroup
-     * 
-     */
-    public function getPriceGroup();
+	/**
+	 * @return PriceGroup
+	 *
+	 */
+	public function getPriceGroup();
 
-    /**
-     * @return Country
-     */
-    public function getFromCountry();
+	/**
+	 * @return Country
+	 */
+	public function getFromCountry();
 
-    /**
-     * @return Country
-     */
-    public function getToCountry();
+	/**
+	 * @return Country
+	 */
+	public function getToCountry();
 
-    /**
-     * @return Service
-     */
-    public function getService();
+	/**
+	 * @return Service
+	 */
+	public function getService();
 
-    /**
-     * @return WeightType
-     */
-    public function getWeightType();
+	/**
+	 * @return WeightType
+	 */
+	public function getWeightType();
 
-    /**
-     * @return Currency
-     */
-    public function getCurrency();
+	/**
+	 * @return Currency
+	 */
+	public function getCurrency();
 
-    /**
-     * @return \DateTime
-     */
-    public function getActiveAt();
+	/**
+	 * @return \DateTime
+	 */
+	public function getActiveAt();
 
-    /**
-     * @return Zone
-     */
-    public function getZone();
+	/**
+	 * @return Zone
+	 */
+	public function getZone();
 }

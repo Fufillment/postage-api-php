@@ -4,7 +4,6 @@
 namespace Fulfillment\Postage\Exceptions;
 
 
-class PostageComponentException extends PostageException
-{
+class PostageComponentException extends PostageException {
 
 }

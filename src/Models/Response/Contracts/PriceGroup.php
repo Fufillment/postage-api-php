@@ -3,49 +3,48 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
-interface PriceGroup
-{
+interface PriceGroup {
 
-    /**
-     * @return int
-     */
-    public function getId();
+	/**
+	 * @return int
+	 */
+	public function getId();
 
-    /**
-     * @param int $id
-     */
-    public function setId($id);
+	/**
+	 * @param int $id
+	 */
+	public function setId($id);
 
-    /**
-     * @return string
-     */
-    public function getName();
+	/**
+	 * @return string
+	 */
+	public function getName();
 
-    /**
-     * @param string $name
-     */
-    public function setName($name);
+	/**
+	 * @param string $name
+	 */
+	public function setName($name);
 
-    /**
-     * @return string
-     */
-    public function getSymbol();
+	/**
+	 * @return string
+	 */
+	public function getSymbol();
 
-    /**
-     * @param string $symbol
-     */
-    public function setSymbol($symbol);
-
-
-    /**
-     * @return Carrier
-     */
-    public function getCarrier();
+	/**
+	 * @param string $symbol
+	 */
+	public function setSymbol($symbol);
 
 
-    /**
-     * @param Carrier $carrier
-     */
-    public function setCarrier($carrier);
+	/**
+	 * @return Carrier
+	 */
+	public function getCarrier();
+
+
+	/**
+	 * @param Carrier $carrier
+	 */
+	public function setCarrier($carrier);
 
 }
