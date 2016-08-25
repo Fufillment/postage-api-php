@@ -119,8 +119,8 @@ class PostageApi extends ApiRequestBase {
 			'stock'                => $stock,
 			'XDEBUG_SESSION_START' => 'postage',
 		];
-		$queryString  = (is_array($queryString)) ?: [];
-		$queryString  = array_merge($queryString, $queryBuilder);
+		$queryString = (is_array($queryString)) ? $queryString : [];
+		$queryString = array_merge($queryString, $queryBuilder);
 
 		$response = $this->apiClient->get("postage/$id/label", $queryString);
 
