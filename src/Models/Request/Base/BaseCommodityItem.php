@@ -56,6 +56,26 @@ abstract class BaseCommodityItem implements CommodityItemContract {
 	 */
 	protected $tariffNumber;
 
+	/**
+	 * @var mixed
+	 */
+	public $passthrough;
+
+	/**
+	 * @param $name
+	 */
+	public function setName($name)
+	{
+		$this->name = (string) $name;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
 
 	/**
 	 * @return string
@@ -199,6 +219,22 @@ abstract class BaseCommodityItem implements CommodityItemContract {
 	public function setTariffNumber($tariffNumber)
 	{
 		$this->tariffNumber = $tariffNumber;
+	}
+
+	/**
+	 * @param mixed $passthrough
+	 */
+	public function setPassthrough($passthrough)
+	{
+		$this->passthrough = $passthrough;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getPassthrough()
+	{
+		return $this->passthrough;
 	}
 
 }

@@ -25,6 +25,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 		$this->unitValue    = ArrayUtil::get($data['unitValue']);
 		$this->unitWeight   = ArrayUtil::get($data['unitWeight']);
 		$this->tariffNumber = ArrayUtil::get($data['tariffNumber']);
+		$this->passthrough  = ArrayUtil::get($data['passthrough'], null);
 	}
 
 	/**
