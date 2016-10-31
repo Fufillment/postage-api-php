@@ -56,6 +56,21 @@ abstract class BaseCommodityItem implements CommodityItemContract {
 	 */
 	protected $tariffNumber;
 
+	/**
+	 * @param $name
+	 */
+	public function setName($name)
+	{
+		$this->name = (string) $name;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
 
 	/**
 	 * @return string
@@ -200,5 +215,4 @@ abstract class BaseCommodityItem implements CommodityItemContract {
 	{
 		$this->tariffNumber = $tariffNumber;
 	}
-
 }
