@@ -14,23 +14,36 @@ class RatesApi extends ApiRequestBase {
 	 *
 	 * Note: If the service is zone-based then zoneName is required
 	 *
-	 * @param int    $serviceId
-	 * @param string $destinationIso2
-	 * @param float  $weight
-	 * @param int    $weightTypeId Defaults to 1 (OZ)
-	 * @param null   $zoneName     Required if the service is zone-based
+	 * @param int             $serviceId
+	 * @param string          $sourceIso2
+	 * @param string          $destinationIso2
+	 * @param float           $weight
+	 * @param null            $zoneName     Required if the service is zone-based
 	 *
-	 * @return mixed|PriceGroup[]
+	 * @param null|string|int $fromPostalCode
+	 * @param null|string|int $toPostalCode
+	 * @param int             $weightTypeId Defaults to 1 (OZ)
+	 *
+	 * @return \Fulfillment\Postage\Models\Response\PriceGroup[]|mixed
 	 */
-	public function getPriceGroups($serviceId, $destinationIso2, $weight, $zoneName = null, $weightTypeId = 1)
+	public function getPriceGroups($serviceId, $sourceIso2, $destinationIso2, $weight, $zoneName = null, $fromPostalCode = null, $toPostalCode = null, $weightTypeId = 1)
 	{
-		$queryString = ['serviceId' => $serviceId, 'destinationCountryISO2' => $destinationIso2, 'weight' => $weight, 'weightTypeId' => $weightTypeId];
+		$queryString = [
+			'serviceId'              => $serviceId,
+			'destinationCountryISO2' => $destinationIso2,
+			'sourceCountryISO2'      => $sourceIso2,
+			'weight'                 => $weight,
+			'weightTypeId'           => $weightTypeId,
+			'fromPostalCode'         => $fromPostalCode,
+			'toPostalCode'           => $toPostalCode,
+			'XDEBUG_SESSION_START'   => 'postage',
+		];
 
-		if (!is_null($zoneName))
+		if (null !== $zoneName)
 		{
 			$queryString['zoneName'] = $zoneName;
 		}
-		$json = $this->apiClient->get("rates/priceGroups/shipment", $queryString);
+		$json = $this->apiClient->get('rates/priceGroups/shipment', $queryString);
 
 		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new NormalizedRate()));
 	}
