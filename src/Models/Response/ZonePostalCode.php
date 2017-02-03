@@ -25,7 +25,7 @@ class ZonePostalCode implements Contracts\ZonePostalCode, \JsonSerializable {
 	 */
 	public function getZone()
 	{
-		return $this->fromPostalCode;
+		return $this->zone;
 	}
 
 	/**
@@ -33,6 +33,6 @@ class ZonePostalCode implements Contracts\ZonePostalCode, \JsonSerializable {
 	 */
 	public function getPostalCode()
 	{
-		return $this->zone;
+		return $this->fromPostalCode;
 	}
 }
