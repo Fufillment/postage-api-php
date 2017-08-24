@@ -13,7 +13,7 @@ class Label implements LabelContract, \JsonSerializable
 
 	protected $id;
 	protected $imageType;
-	protected $s3ImagePath;
+	protected $s3FilePath;
 
 	/**
 	 * @return int
@@ -50,16 +50,16 @@ class Label implements LabelContract, \JsonSerializable
 	/**
 	 * @param string $path
 	 */
-	public function setS3ImagePath($path)
+	public function setS3FilePath($path)
 	{
-		$this->s3ImagePath = $path;
+		$this->s3FilePath = $path;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getS3ImagePath()
+	public function getS3FilePath()
 	{
-		return $this->s3ImagePath;
+		return $this->s3FilePath;
 	}
 }

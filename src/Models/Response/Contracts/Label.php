@@ -29,10 +29,10 @@ interface Label
 	/**
 	 * @param string $path
 	 */
-	public function setS3ImagePath($path);
+	public function setS3FilePath($path);
 
 	/**
 	 * @return string
 	 */
-	public function getS3ImagePath();
+	public function getS3FilePath();
 }
