@@ -2,6 +2,7 @@
 
 namespace Fulfillment\Postage\Models\Response;
 
+use Fulfillment\Postage\Models\Response\Contracts\Label;
 use Fulfillment\Postage\Models\Response\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 
@@ -62,6 +63,11 @@ class Postage implements PostageContract, \JsonSerializable {
 	 * @var PostageReferenceField[]
 	 */
 	protected $postageReferenceFields;
+
+	/**
+	 * @var Label
+	 */
+	protected $label;
 
 
 	/**
@@ -241,4 +247,19 @@ class Postage implements PostageContract, \JsonSerializable {
 	}
 
 
+	/**
+	 * @param Label $label
+	 */
+	public function setLabel($label)
+	{
+		$this->label = $label;
+	}
+
+	/**
+	 * @return Label
+	 */
+	public function getLabel()
+	{
+		return $this->label;
+	}
 }
