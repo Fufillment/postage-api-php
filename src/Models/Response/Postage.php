@@ -95,11 +95,15 @@ class Postage implements PostageContract, \JsonSerializable {
 	}
 
 	/**
-	 * @param Date $shippedAt
+	 * @param mixed $shippedAt
 	 */
 	public function setShippedAt($shippedAt)
 	{
-		$this->shippedAt = $shippedAt;
+		if(is_string($shippedAt)) {
+			$this->shippedAt = new \DateTime($shippedAt);
+		} else {
+			$this->shipment = $shippedAt;
+		}
 	}
 
 	/**
@@ -207,11 +211,15 @@ class Postage implements PostageContract, \JsonSerializable {
 	}
 
 	/**
-	 * @param Date $createdAt
+	 * @param mixed $createdAt
 	 */
 	public function setCreatedAt($createdAt)
 	{
-		$this->createdAt = $createdAt;
+		if(is_string($createdAt)) {
+			$this->createdAt = new \DateTime($createdAt);
+		} else {
+			$this->createdAt = $createdAt;
+		}
 	}
 
 	/**

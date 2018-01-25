@@ -181,7 +181,11 @@ class NormalizedRate implements NormalizedRateContract, \JsonSerializable {
 	 */
 	public function setActiveAt($object)
 	{
-		$this->activeAt = new \DateTime($object->date);
+		if(is_string($object)) {
+			$this->activeAt = new \DateTime($object);
+		} else {
+			$this->activeAt = new \DateTime($object->date);
+		}
 	}
 
 	/**

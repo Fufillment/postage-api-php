@@ -21,7 +21,7 @@ interface Postage {
 	public function getShippedAt();
 
 	/**
-	 * @param Date $shippedAt
+	 * @param mixed $shippedAt
 	 */
 	public function setShippedAt($shippedAt);
 
@@ -91,7 +91,7 @@ interface Postage {
 	public function setCreatedBy($createdBy);
 
 	/**
-	 * @param Date $createdAt
+	 * @param mixed $createdAt
 	 */
 	public function setCreatedAt($createdAt);
 
