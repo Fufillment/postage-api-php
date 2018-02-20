@@ -61,11 +61,13 @@ class RatesApi extends ApiRequestBase {
 	 *
 	 * @param null|string|int $fromPostalCode
 	 * @param null|string|int $toPostalCode
+	 * @param null|float      $cost
 	 * @param int             $weightTypeId Defaults to 1 (OZ)
 	 *
 	 * @return \Fulfillment\Postage\Models\Response\PriceGroup[]|mixed
+	 * @throws \JsonMapper_Exception
 	 */
-	public function getRatesAsPostage($shipperSymbol, $serviceSymbol, $sourceIso2, $destinationIso2, $weight, $zoneName = null, $fromPostalCode = null, $toPostalCode = null, $weightTypeId = 1)
+	public function getRatesAsPostage($shipperSymbol, $serviceSymbol, $sourceIso2, $destinationIso2, $weight, $zoneName = null, $fromPostalCode = null, $toPostalCode = null, $cost = null, $weightTypeId = 1)
 	{
 		$queryString = [
 			'shipperSymbol'          => $shipperSymbol,
@@ -76,6 +78,7 @@ class RatesApi extends ApiRequestBase {
 			'weightTypeId'           => $weightTypeId,
 			'fromPostalCode'         => $fromPostalCode,
 			'toPostalCode'           => $toPostalCode,
+			'cost'                   => $cost,
 			'XDEBUG_SESSION_START'   => 'postage',
 		];
 
