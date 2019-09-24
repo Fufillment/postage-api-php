@@ -65,10 +65,11 @@ class RatesApi extends ApiRequestBase {
 	 * @param int             $weightTypeId Defaults to 1 (OZ)
 	 * @param bool            $diagnose
 	 *
+	 * @param null            $validAt
+	 *
 	 * @return \Fulfillment\Postage\Models\Response\PriceGroup[]|mixed
-	 * @throws \JsonMapper_Exception
 	 */
-	public function getRatesAsPostage($shipperSymbol, $serviceSymbol, $sourceIso2, $destinationIso2, $weight, $zoneName = null, $fromPostalCode = null, $toPostalCode = null, $cost = null, $weightTypeId = 1, $diagnose = false)
+	public function getRatesAsPostage($shipperSymbol, $serviceSymbol, $sourceIso2, $destinationIso2, $weight, $zoneName = null, $fromPostalCode = null, $toPostalCode = null, $cost = null, $weightTypeId = 1, $diagnose = false, $validAt = null)
 	{
 		$queryString = [
 			'shipperSymbol'          => $shipperSymbol,
@@ -81,6 +82,7 @@ class RatesApi extends ApiRequestBase {
 			'toPostalCode'           => $toPostalCode,
 			'cost'                   => $cost,
 			'diagnose'               => $diagnose,
+			'validAt'                => null,
 			'XDEBUG_SESSION_START'   => 'postage',
 		];
 
