@@ -27,8 +27,8 @@ class Postage extends BasePostage implements Validatable {
 	public function getValidationRules()
 	{
 		return [
-			v::attribute('shipper', v::string()->notEmpty()),
-			v::attribute('service', v::string()->notEmpty()),
+			v::attribute('shipper', v::stringType()->notEmpty()),
+			v::attribute('service', v::stringType()->notEmpty()),
 			v::attribute('referenceFields', v::instance('\Fulfillment\Postage\Models\Request\Contracts\ReferenceFields')->callback([$this->referenceFields, 'validate'])),
 			v::attribute('shipment', v::instance('\Fulfillment\Postage\Models\Request\Contracts\Shipment')->callback([$this->shipment, 'validate'])),
 		];

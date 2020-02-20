@@ -34,14 +34,14 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 	{
 		return [
 			// name will become the main descriptor of an item however we are not yet enforcing this server side
-			//v::attribute('name', v::string()->notEmpty()),
-			//v::attribute('description', v::oneOf(v::nullValue(), v::string()->notEmpty())),
-			v::attribute('name', v::oneOf(v::nullValue(), v::string()->notEmpty())),
+			//v::attribute('name', v::stringType()->notEmpty()),
+			//v::attribute('description', v::oneOf(v::nullType()(), v::stringType()->notEmpty())),
+			v::attribute('name', v::oneOf(v::nullType()(), v::stringType()->notEmpty())),
 			v::attribute('description', v::notEmpty()->string()),
-			v::attribute('fromCountry', v::oneOf(v::nullValue(), v::string()->notEmpty())),
-			v::attribute('currency', v::string()->notEmpty()),
-			v::attribute('weightType', v::string()->notEmpty()),
-			v::attribute('code', v::string()->notEmpty()),
+			v::attribute('fromCountry', v::oneOf(v::nullType()(), v::stringType()->notEmpty())),
+			v::attribute('currency', v::stringType()->notEmpty()),
+			v::attribute('weightType', v::stringType()->notEmpty()),
+			v::attribute('code', v::stringType()->notEmpty()),
 			v::attribute('quantity', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitValue', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitWeight', v::numeric()->positive()->notEmpty()),

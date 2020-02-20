@@ -27,11 +27,11 @@ class Shipment extends BaseShipment implements Validatable {
 	{
 
 		return [
-			v::attribute('weightType', v::notEmpty()->string()),
+			v::attribute('weightType', v::stringType()),
 			v::attribute('weight', v::notEmpty()->numeric()),
 			v::attribute('toAddress', v::instance('\Fulfillment\Postage\Models\Request\Contracts\Address')->callback([$this->getToAddress(), 'validate'])),
-			v::attribute('packaging', v::oneOf(v::nullValue(), v::instance('Fulfillment\Models\Postage\Request\Contracts\Packaging'))),
-			v::attribute('commodityItems', v::arr()),
+			v::attribute('packaging', v::oneOf(v::nullType()(), v::instance('Fulfillment\Models\Postage\Request\Contracts\Packaging'))),
+			v::attribute('commodityItems', v::arrayVal()),
 		];
 
 	}

@@ -21,7 +21,7 @@
     }
   ],
   "require": {
-    "respect/validation": "0.9.3",
+    "respect/validation": "1.1",
     "vlucas/phpdotenv": "~1.0",
     "netresearch/jsonmapper": "^0.8.0",
     "fulfillment/api-wrapper": "dev-master",

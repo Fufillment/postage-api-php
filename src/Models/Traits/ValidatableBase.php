@@ -3,7 +3,7 @@
 namespace Fulfillment\Postage\Models\Traits;
 
 use Fulfillment\Postage\Exceptions\ClientValidationException;
-use Respect\Validation\Exceptions\ValidationExceptionInterface;
+use Respect\Validation\Exceptions\ValidationException;
 use Respect\Validation\Validator;
 
 trait ValidatableBase {
@@ -12,7 +12,7 @@ trait ValidatableBase {
 	/**
 	 * @return Validator[]
 	 */
-	public abstract function getValidationRules();
+	abstract public function getValidationRules();
 
 	public function validate()
 	{
@@ -25,7 +25,7 @@ trait ValidatableBase {
 			{
 				$validator->check($this);
 			}
-			catch (ValidationExceptionInterface $e)
+			catch (ValidationException $e)
 			{
 				$this->populateShortName();
 

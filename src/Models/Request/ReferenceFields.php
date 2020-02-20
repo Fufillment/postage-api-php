@@ -28,13 +28,13 @@ class ReferenceFields extends BaseReferenceFields implements Validatable {
 	public function getValidationRules()
 	{
 		return [
-			v::attribute('shipperReference', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('consigneeReference', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('reference1', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('reference2', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('reference3', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('reference4', v::oneOf(v::nullValue(), v::notEmpty())),
-			v::attribute('reference5', v::oneOf(v::nullValue(), v::notEmpty())),
+			v::attribute('shipperReference', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('consigneeReference', v::oneOf(v::nullType(), v::notEmpty())),
+			v::attribute('reference1', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('reference2', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('reference3', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('reference4', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('reference5', v::oneOf(v::nullType()(), v::notEmpty())),
 		];
 	}
 }

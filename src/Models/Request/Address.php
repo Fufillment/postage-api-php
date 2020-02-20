@@ -31,14 +31,14 @@ class Address extends BaseAddress implements Validatable {
 	{
 		return [
 			v::attribute('name', v::notEmpty()->alnum('-.')),
-			v::attribute('company', v::oneOf(v::nullValue(), v::string())),
-			v::attribute('email', v::oneOf(v::nullValue(), v::email())),
-			v::attribute('phone', v::oneOf(v::nullValue(), v::phone())),
-			v::attribute('street1', v::string()->notEmpty()),
-			v::attribute('street2', v::oneOf(v::nullValue(), v::string())),
+			v::attribute('company', v::oneOf(v::nullType()(), v::stringType())),
+			v::attribute('email', v::oneOf(v::nullType()(), v::email())),
+			v::attribute('phone', v::oneOf(v::nullType()(), v::phone())),
+			v::attribute('street1', v::stringType()->notEmpty()),
+			v::attribute('street2', v::oneOf(v::nullType()(), v::stringType())),
 			v::attribute('city', v::notEmpty()->alnum('-.')),
 			v::attribute('stateProvince', v::alnum('-.')->notEmpty()),
-			v::attribute('postalCode', v::string()->notEmpty()),
+			v::attribute('postalCode', v::stringType()->notEmpty()),
 			v::attribute('country', v::alpha()->notEmpty()),
 		];
 	}
