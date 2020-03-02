@@ -73,4 +73,14 @@ interface ReferenceFields extends \JsonSerializable {
 	 */
 	public function setReference5($reference5);
 
+	/**
+	 * @return string
+	 */
+	public function getReference6();
+
+	/**
+	 * @param string $reference6
+	 */
+	public function setReference6($reference6);
+
 }

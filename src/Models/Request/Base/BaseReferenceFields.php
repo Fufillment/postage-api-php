@@ -42,6 +42,11 @@ abstract class BaseReferenceFields implements ReferenceFieldsContract {
 	protected $reference5;
 
 	/**
+	 * @var string
+	 */
+	protected $reference6;
+
+	/**
 	 * @return string
 	 */
 	public function getShipperReference()
@@ -151,6 +156,22 @@ abstract class BaseReferenceFields implements ReferenceFieldsContract {
 	public function setReference5($reference5)
 	{
 		$this->reference5 = $reference5;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getReference6()
+	{
+		return $this->reference6;
+	}
+
+	/**
+	 * @param string $reference6
+	 */
+	public function setReference6($reference6)
+	{
+		$this->reference6 = $reference6;
 	}
 
 }

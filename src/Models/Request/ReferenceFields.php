@@ -23,6 +23,7 @@ class ReferenceFields extends BaseReferenceFields implements Validatable {
 		$this->reference3         = ArrayUtil::get($data['reference3']);
 		$this->reference4         = ArrayUtil::get($data['reference4']);
 		$this->reference5         = ArrayUtil::get($data['reference5']);
+		$this->reference6         = ArrayUtil::get($data['reference6']);
 	}
 
 	public function getValidationRules()
@@ -35,6 +36,7 @@ class ReferenceFields extends BaseReferenceFields implements Validatable {
 			v::attribute('reference3', v::oneOf(v::nullType()(), v::notEmpty())),
 			v::attribute('reference4', v::oneOf(v::nullType()(), v::notEmpty())),
 			v::attribute('reference5', v::oneOf(v::nullType()(), v::notEmpty())),
+			v::attribute('reference6', v::oneOf(v::nullType()(), v::notEmpty())),
 		];
 	}
 }
