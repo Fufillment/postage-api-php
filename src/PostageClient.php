@@ -14,7 +14,19 @@ use League\CLImate\CLImate;
 date_default_timezone_set('UTC');
 
 class PostageClient {
+
+	/**
+	 * @var PostageApi
+	 */
 	public $postage;
+	/**
+	 * @var ZonesApi
+	 */
+	public $zones;
+	/**
+	 * @var RatesApi
+	 */
+	public $rates;
 
 	protected $validateRequests;
 	protected $jsonOnly;

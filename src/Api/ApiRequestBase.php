@@ -35,6 +35,14 @@ class ApiRequestBase {
 		return $this->validateRequests;
 	}
 
+	/**
+	 * @return Api
+	 */
+	public function getClient()
+	{
+		return $this->apiClient;
+	}
+
 	protected function shouldValidateRequest($individualRequestValidation)
 	{
 		if ($individualRequestValidation)
