@@ -24,7 +24,7 @@
     "respect/validation": "1.1",
     "vlucas/phpdotenv": "~1.0",
     "netresearch/jsonmapper": "^0.8.0",
-    "fulfillment/api-wrapper": "dev-master",
+    "fulfillment/api-wrapper": "0.1.1",
     "foxxmd/php-utilities": "dev-master"
   },
   "require-dev": {
