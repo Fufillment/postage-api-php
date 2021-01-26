@@ -9,7 +9,9 @@ use Fulfillment\Api\Configuration\ApiConfiguration;
 use Fulfillment\Postage\Api\PostageApi;
 use Fulfillment\Postage\Api\RatesApi;
 use Fulfillment\Postage\Api\ZonesApi;
+use GuzzleHttp\Client;
 use League\CLImate\CLImate;
+use League\CLImate\Util\Writer\WriterInterface;
 
 date_default_timezone_set('UTC');
 
@@ -33,11 +35,13 @@ class PostageClient {
 
 	/**
 	 *
-	 * @param $config mixed Must be either an absolute string pointing to a directory with a .env file or an array containing configuration information
+	 * @param      $config mixed Must be either an absolute string pointing to a directory with a .env file or an array containing configuration information
+	 * @param null $logger
+	 * @param null $guzzle
 	 *
 	 * @throws \Exception Thrown if a configuration is not valid
 	 */
-	public function __construct($config)
+	public function __construct($config, WriterInterface $logger = null, Client $guzzle = null)
 	{
 		$this->climate = new CLImate;
 
@@ -97,7 +101,7 @@ class PostageClient {
 			'scope'              => 'postage',
 		]);
 
-		$apiClient     = new Api($apiConfig);
+		$apiClient     = new Api($apiConfig, $logger, $guzzle);
 		$this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
 		$this->zones   = new ZonesApi($apiClient, $this->jsonOnly, $this->requestValidation);
 		$this->rates   = new RatesApi($apiClient, $this->jsonOnly, $this->requestValidation);
