@@ -45,4 +45,28 @@ interface Postage extends \JsonSerializable {
 	 *
 	 */
 	public function setShipment($shipment);
+
+	/**
+	 * @param PostageFeature[] $features
+	 *
+	 * @return mixed
+	 */
+	public function setFeatures($features);
+
+	/**
+	 * @return PostageFeature[]
+	 */
+	public function getFeatures();
+
+	/**
+	 * @param PostageFeature $feature
+	 *
+	 */
+	public function addFeature(PostageFeature $feature);
+
+	/**
+	 * @param PostageFeature $feature
+	 *
+	 */
+	public function removeFeature(PostageFeature $feature);
 }

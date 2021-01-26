@@ -3,6 +3,7 @@
 namespace Fulfillment\Postage\Models\Request\Base;
 
 use \Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
+use Fulfillment\Postage\Models\Request\Contracts\PostageFeature;
 
 abstract class BasePostage implements PostageContract {
 
@@ -25,6 +26,11 @@ abstract class BasePostage implements PostageContract {
 	 * @var BaseShipment
 	 */
 	protected $shipment;
+
+	/**
+	 * @var BasePostageFeature[]
+	 */
+	protected $features;
 
 
 	/**
@@ -89,6 +95,29 @@ abstract class BasePostage implements PostageContract {
 	public function setShipment($shipment)
 	{
 		$this->shipment = $shipment;
+	}
+
+	public function setFeatures($features)
+	{
+		$this->features = $features;
+	}
+
+	public function getFeatures()
+	{
+		return $this->features;
+	}
+
+	public function addFeature(PostageFeature $feature)
+	{
+		$this->features[] = $feature;
+	}
+
+	public function removeFeature(PostageFeature $feature)
+	{
+		if (($key = array_search($feature, $this->features)) !== false)
+		{
+			unset($this->features[ $key ]);
+		}
 	}
 
 }

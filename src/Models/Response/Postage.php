@@ -65,6 +65,11 @@ class Postage implements PostageContract, \JsonSerializable {
 	protected $postageReferenceFields;
 
 	/**
+	 * @var PostageFeature[]
+	 */
+	protected $features;
+
+	/**
 	 * @var Label
 	 */
 	protected $label;
@@ -269,5 +274,21 @@ class Postage implements PostageContract, \JsonSerializable {
 	public function getLabel()
 	{
 		return $this->label;
+	}
+
+	/**
+	 * @return PostageFeature[]
+	 */
+	public function getFeatures()
+	{
+		return $this->features;
+	}
+
+	/**
+	 * @param PostageFeature[] $features
+	 */
+	public function setFeatures($features)
+	{
+		$this->features = $features;
 	}
 }

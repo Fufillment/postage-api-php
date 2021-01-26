@@ -106,6 +106,16 @@ interface Postage {
 	public function setPostageReferenceFields($postageReferenceFields);
 
 	/**
+	 * @return PostageFeature[]
+	 */
+	public function getFeatures();
+
+	/**
+	 * @param PostageFeature[] $features
+	 */
+	public function setFeatures($features);
+
+	/**
 	 * @param Label $label
 	 */
 	public function setLabel($label);

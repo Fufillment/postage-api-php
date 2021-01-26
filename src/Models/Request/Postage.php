@@ -19,6 +19,7 @@ class Postage extends BasePostage implements Validatable {
 		$this->service         = ArrayUtil::get($data['service']);
 		$this->referenceFields = ArrayUtil::get($data['referenceFields']);
 		$this->shipment        = ArrayUtil::get($data['shipment']);
+		$this->features        = ArrayUtil::get($data['features']);
 	}
 
 	/**
@@ -31,6 +32,7 @@ class Postage extends BasePostage implements Validatable {
 			v::attribute('service', v::stringType()->notEmpty()),
 			v::attribute('referenceFields', v::instance('\Fulfillment\Postage\Models\Request\Contracts\ReferenceFields')->callback([$this->referenceFields, 'validate'])),
 			v::attribute('shipment', v::instance('\Fulfillment\Postage\Models\Request\Contracts\Shipment')->callback([$this->shipment, 'validate'])),
+			v::attribute('features', v::arrayVal())
 		];
 	}
 }

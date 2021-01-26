@@ -3,8 +3,12 @@
 
 namespace Fulfillment\Postage\Api;
 
+use Fulfillment\Postage\Models\Request\Contracts\BaseRatePostage;
+use Fulfillment\Postage\Models\Request\Contracts\BaseRateRequest;
+use Fulfillment\Postage\Models\Request\Contracts\Postage as PostageContract;
 use Fulfillment\Postage\Models\Response\NormalizedRate;
 use Fulfillment\Postage\Models\Response\RatesResponse;
+use Fulfillment\Postage\Models\Response\RequestedRate;
 
 class RatesApi extends ApiRequestBase {
 	/**
@@ -93,5 +97,22 @@ class RatesApi extends ApiRequestBase {
 		$json = $this->apiClient->get('rates/priceGroups/postage', $queryString);
 
 		return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new RatesResponse()));
+	}
+
+	/**
+	 * Get cost and markup rates for a shipper, service, desination, and weight.
+	 *
+	 * Note: If the service is zone-based then zoneName is required
+	 *
+	 * @param BaseRatePostage|array $ratePostage
+	 * @param array|null            $queryString
+	 *
+	 * @return RatesResponse|mixed
+	 */
+	public function ratePostage($ratePostage, $queryString = null)
+	{
+		$json = $this->apiClient->post('rate', $ratePostage, $queryString);
+
+		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new RequestedRate()));
 	}
 }
