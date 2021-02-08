@@ -6,12 +6,12 @@ namespace Fulfillment\Postage\Models\Response\Contracts;
 interface Postage {
 
 	/**
-	 * @return int
+	 * @return null|int
 	 */
 	public function getId();
 
 	/**
-	 * @param int $id
+	 * @param null|int $id
 	 */
 	public function setId($id);
 

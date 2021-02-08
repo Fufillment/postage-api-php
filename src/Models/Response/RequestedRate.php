@@ -26,6 +26,11 @@ class RequestedRate implements \Fulfillment\Postage\Models\Response\Contracts\Re
 	protected $messages;
 
 	/**
+	 * @var Postage
+	 */
+	protected $postage;
+
+	/**
 	 * @return bool
 	 */
 	public function getSuccess()
@@ -95,5 +100,21 @@ class RequestedRate implements \Fulfillment\Postage\Models\Response\Contracts\Re
 	public function setRates($rates)
 	{
 		$this->rates = $rates;
+	}
+
+	/**
+	 * @return Postage|null
+	 */
+	public function getPostage()
+	{
+		return $this->postage;
+	}
+
+	/**
+	 * @param Postage|null $postage
+	 */
+	public function setPostage($postage)
+	{
+		$this->postage = $postage;
 	}
 }

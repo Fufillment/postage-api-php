@@ -10,7 +10,7 @@ class Postage implements PostageContract, \JsonSerializable {
 	use SimpleSerializable;
 
 	/**
-	 * @var int
+	 * @var int|null
 	 */
 	protected $id;
 
@@ -76,7 +76,7 @@ class Postage implements PostageContract, \JsonSerializable {
 
 
 	/**
-	 * @return int
+	 * @return null|int
 	 */
 	public function getId()
 	{
@@ -84,7 +84,7 @@ class Postage implements PostageContract, \JsonSerializable {
 	}
 
 	/**
-	 * @param int $id
+	 * @param null|int $id
 	 */
 	public function setId($id)
 	{

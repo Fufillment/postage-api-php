@@ -50,4 +50,14 @@ interface RequestedRate
 	 * @param string $message
 	 */
 	public function addMessage($message);
+
+	/**
+	 * @return null|Postage
+	 */
+	public function getPostage();
+
+	/**
+	 * @param null|Postage $postage
+	 */
+	public function setPostage($postage);
 }

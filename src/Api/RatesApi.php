@@ -113,6 +113,6 @@ class RatesApi extends ApiRequestBase {
 	{
 		$json = $this->apiClient->post('rate', $ratePostage, $queryString);
 
-		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new RequestedRate()));
+		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json->data, [], new RequestedRate()));
 	}
 }
