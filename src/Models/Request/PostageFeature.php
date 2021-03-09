@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fulfillment\Postage\Models;
+namespace Fulfillment\Postage\Models\Request;
 
 
 use FoxxMD\Utilities\ArrayUtil;
