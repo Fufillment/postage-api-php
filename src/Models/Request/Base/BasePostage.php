@@ -120,4 +120,20 @@ abstract class BasePostage implements PostageContract {
 		}
 	}
 
+	public function hasFeature($identifier)
+	{
+		return $this->getFeature($identifier) !== null;
+	}
+
+	public function getFeature($identifier)
+	{
+		foreach($this->features as $f) {
+			if($f->getFeatureId() === $identifier)
+			{
+				return $f;
+			}
+		}
+		return null;
+	}
+
 }
