@@ -34,6 +34,11 @@ class Packaging implements PackagingContract, \JsonSerializable {
 	 */
 	protected $distanceType;
 
+	/**
+	 * @var string
+	 */
+	protected $packageType;
+
 
 	/**
 	 * @return int
@@ -113,6 +118,22 @@ class Packaging implements PackagingContract, \JsonSerializable {
 	public function setDistanceType($distanceType)
 	{
 		$this->distanceType = $distanceType;
+	}
+
+	/**
+	 * @param string|null $type
+	 */
+	public function setPackageType($type)
+	{
+		$this->packageType = $type;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getPackageType()
+	{
+		return $this->packageType;
 	}
 
 }

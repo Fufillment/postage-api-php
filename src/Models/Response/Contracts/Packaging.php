@@ -55,4 +55,14 @@ interface Packaging {
 	 */
 	public function setDistanceType($distanceType);
 
+	/**
+	 * @param string|null $type
+	 */
+	public function setPackageType($type);
+
+	/**
+	 * @return string|null
+	 */
+	public function getPackageType();
+
 }

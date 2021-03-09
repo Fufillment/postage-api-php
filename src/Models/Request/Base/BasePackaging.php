@@ -26,6 +26,10 @@ abstract class BasePackaging implements PackagingContract {
 	 */
 	protected $height;
 
+	/**
+	 * @var string
+	 */
+	protected $packageType;
 
 	/**
 	 * @return string
@@ -89,6 +93,22 @@ abstract class BasePackaging implements PackagingContract {
 	public function setHeight($height)
 	{
 		$this->height = $height;
+	}
+
+	/**
+	 * @param string|null $type
+	 */
+	public function setPackageType($type)
+	{
+		$this->packageType = $type;
+	}
+
+	/**
+	 * @return string|null
+	 */
+	public function getPackageType()
+	{
+		return $this->packageType;
 	}
 
 }

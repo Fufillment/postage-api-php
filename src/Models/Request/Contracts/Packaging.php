@@ -42,4 +42,14 @@ interface Packaging extends \JsonSerializable {
 	 * @param float $height
 	 */
 	public function setHeight($height);
+
+	/**
+	 * @param string|null $type
+	 */
+	public function setPackageType($type);
+
+	/**
+	 * @return string|null
+	 */
+	public function getPackageType();
 }
