@@ -23,7 +23,7 @@
   "require": {
     "respect/validation": "1.1",
     "netresearch/jsonmapper": "^0.8.0",
-    "fulfillment/api-wrapper": "dev-laravel52",
+    "fulfillment/api-wrapper": "0.2.0",
     "foxxmd/php-utilities": "dev-master"
   },
   "require-dev": {
