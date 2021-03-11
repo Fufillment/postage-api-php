@@ -22,7 +22,7 @@ class Subdivision implements SubdivisionContract, \JsonSerializable {
 	/**
 	 * @var string
 	 */
-	protected $symbol;
+	public $symbol;
 
 	/**
 	 * @var string

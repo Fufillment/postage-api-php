@@ -22,7 +22,7 @@ class Country implements CountryContract, \JsonSerializable {
 	/**
 	 * @var string
 	 */
-	protected $iso2;
+	public $iso2;
 
 	/**
 	 * @var string

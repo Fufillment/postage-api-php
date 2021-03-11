@@ -12,62 +12,62 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @var int
 	 */
-	protected $id;
+	public $id;
 
 	/**
 	 * @var string
 	 */
-	protected $name;
+	public $name;
 
 	/**
 	 * @var string
 	 */
-	protected $company;
+	public $company;
 
 	/**
 	 * @var string
 	 */
-	protected $address1;
+	public $address1;
 
 	/**
 	 * @var string
 	 */
-	protected $address2;
+	public $address2;
 
 	/**
 	 * @var string
 	 */
-	protected $city;
+	public $city;
 
 	/**
 	 * @var string
 	 */
-	protected $stateProvince;
+	public $stateProvince;
 
 	/**
 	 * @var string
 	 */
-	protected $postalCode;
+	public $postalCode;
 
 	/**
 	 * @var string
 	 */
-	protected $phone;
+	public $phone;
 
 	/**
 	 * @var string
 	 */
-	protected $email;
+	public $email;
 
 	/**
 	 * @var Subdivision
 	 */
-	protected $subdivision;
+	public $subdivision;
 
 	/**
 	 * @var Country
 	 */
-	protected $country;
+	public $country;
 
 
 	/**

@@ -12,47 +12,47 @@ class AddressMeta implements AddressMetaContract, \JsonSerializable
 	/**
 	 * @var string
 	 */
-	protected $confidenceLevel;
+	public $confidenceLevel;
 
 	/**
 	 * @var boolean
 	 */
-	protected $apiExplicitValid;
+	public $apiExplicitValid;
 
 	/**
 	 * @var string
 	 */
-	protected $apiExplicitValidReason;
+	public $apiExplicitValidReason;
 
 	/**
 	 * @var string
 	 */
-	protected $tenantType;
+	public $tenantType;
 
 	/**
 	 * @var string
 	 */
-	protected $addressMatchType;
+	public $addressMatchType;
 
 	/**
 	 * @var boolean
 	 */
-	protected $peInferredValid;
+	public $peInferredValid;
 
 	/**
 	 * @var string
 	 */
-	protected $peInferredValidReason;
+	public $peInferredValidReason;
 
 	/**
 	 * @var array
 	 */
-	protected $rawAttributes;
+	public $rawAttributes;
 
 	/**
 	 * @var AddressMetaNormalizedAttributes[]
 	 */
-	protected $normalizedAttributes;
+	public $normalizedAttributes;
 
 	/**
 	 * @return string
