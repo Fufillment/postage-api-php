@@ -57,22 +57,22 @@ interface Address {
 	/**
 	 * @return string
 	 */
-	public function getCity();
+	public function getAddressRegion();
 
 	/**
-	 * @param string $city
+	 * @param string $addressRegion
 	 */
-	public function setCity($city);
+	public function setAddressRegion($addressRegion);
 
 	/**
 	 * @return string
 	 */
-	public function getStateProvince();
+	public function getAddressLocality();
 
 	/**
-	 * @param string $stateProvince
+	 * @param string $addressLocality
 	 */
-	public function setStateProvince($stateProvince);
+	public function setAddressLocality($addressLocality);
 
 	/**
 	 * @return string
@@ -117,11 +117,11 @@ interface Address {
 	/**
 	 * @return Country
 	 */
-	public function getCountry();
+	public function getIso();
 
 	/**
-	 * @param Country $country
+	 * @param Country $iso
 	 */
-	public function setCountry($country);
+	public function setIso($iso);
 
 }

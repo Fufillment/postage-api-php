@@ -37,12 +37,12 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @var string
 	 */
-	public $city;
+	public $addressLocality;
 
 	/**
 	 * @var string
 	 */
-	public $stateProvince;
+	public $addressRegion;
 
 	/**
 	 * @var string
@@ -67,7 +67,7 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @var Country
 	 */
-	public $country;
+	public $iso;
 
 
 	/**
@@ -153,33 +153,33 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @return string
 	 */
-	public function getCity()
+	public function getAddressLocality()
 	{
-		return $this->city;
+		return $this->addressLocality;
 	}
 
 	/**
-	 * @param string $city
+	 * @param string $addressLocality
 	 */
-	public function setCity($city)
+	public function setAddressLocality($addressLocality)
 	{
-		$this->city = $city;
+		$this->addressLocality = $addressLocality;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getStateProvince()
+	public function getAddressRegion()
 	{
-		return $this->stateProvince;
+		return $this->addressRegion;
 	}
 
 	/**
-	 * @param string $stateProvince
+	 * @param string $addressRegion
 	 */
-	public function setStateProvince($stateProvince)
+	public function setAddressRegion($addressRegion)
 	{
-		$this->stateProvince = $stateProvince;
+		$this->addressRegion = $addressRegion;
 	}
 
 	/**
@@ -249,17 +249,17 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @return Country
 	 */
-	public function getCountry()
+	public function getIso()
 	{
-		return $this->country;
+		return $this->iso;
 	}
 
 	/**
-	 * @param Country $country
+	 * @param Country $iso
 	 */
-	public function setCountry($country)
+	public function setIso($iso)
 	{
-		$this->country = $country;
+		$this->iso = $iso;
 	}
 
 }
