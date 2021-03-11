@@ -6,6 +6,7 @@ use Dotenv;
 use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
+use Fulfillment\Postage\Api\AddressApi;
 use Fulfillment\Postage\Api\PostageApi;
 use Fulfillment\Postage\Api\RatesApi;
 use Fulfillment\Postage\Api\ZonesApi;
@@ -29,6 +30,11 @@ class PostageClient {
 	 * @var RatesApi
 	 */
 	public $rates;
+
+	/**
+	 * @var AddressApi
+	 */
+	public $address;
 
 	protected $validateRequests;
 	protected $jsonOnly;
@@ -105,6 +111,7 @@ class PostageClient {
 		$this->postage = new PostageApi($apiClient, $this->jsonOnly, $this->requestValidation);
 		$this->zones   = new ZonesApi($apiClient, $this->jsonOnly, $this->requestValidation);
 		$this->rates   = new RatesApi($apiClient, $this->jsonOnly, $this->requestValidation);
+		$this->address = new AddressApi($apiClient, $this->jsonOnly, $this->requestValidation);
 		//instantiate api
 	}
 
