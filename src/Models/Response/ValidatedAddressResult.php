@@ -6,7 +6,7 @@ namespace Fulfillment\Postage\Models\Response;
 
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
 
-class AddressValidationResponse implements \JsonSerializable
+class ValidatedAddressResult implements \JsonSerializable
 {
 	use SimpleSerializable;
 

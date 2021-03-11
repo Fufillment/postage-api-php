@@ -12,42 +12,189 @@ class AddressMeta implements AddressMetaContract, \JsonSerializable
 	/**
 	 * @var string
 	 */
-	protected $addressType;
+	protected $confidenceLevel;
+
+	/**
+	 * @var boolean
+	 */
+	protected $apiExplicitValid;
+
+	/**
+	 * @var string
+	 */
+	protected $apiExplicitValidReason;
+
+	/**
+	 * @var string
+	 */
+	protected $tenantType;
+
+	/**
+	 * @var string
+	 */
+	protected $addressMatchType;
+
+	/**
+	 * @var boolean
+	 */
+	protected $peInferredValid;
+
+	/**
+	 * @var string
+	 */
+	protected $peInferredValidReason;
 
 	/**
 	 * @var array
 	 */
-	protected $attributes;
+	protected $rawAttributes;
 
 	/**
-	 * @return array
+	 * @var AddressMetaNormalizedAttributes[]
 	 */
-	public function getAttributes()
+	protected $normalizedAttributes;
+
+	/**
+	 * @return string
+	 */
+	public function getConfidenceLevel()
 	{
-		return $this->attributes;
+		return $this->confidenceLevel;
 	}
 
 	/**
-	 * @param array $attributes
+	 * @param string $confidenceLevel
 	 */
-	public function setAttributes($attributes)
+	public function setConfidenceLevel($confidenceLevel)
 	{
-		$this->attributes = $attributes;
+		$this->confidenceLevel = $confidenceLevel;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isApiExplicitValid()
+	{
+		return $this->apiExplicitValid;
+	}
+
+	/**
+	 * @param bool $apiExplicitValid
+	 */
+	public function setApiExplicitValid($apiExplicitValid)
+	{
+		$this->apiExplicitValid = $apiExplicitValid;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getAddressType()
+	public function getApiExplicitValidReason()
 	{
-		return $this->addressType;
+		return $this->apiExplicitValidReason;
 	}
 
 	/**
-	 * @param string $addressType
+	 * @param string $apiExplicitValidReason
 	 */
-	public function setAddressType($addressType)
+	public function setApiExplicitValidReason($apiExplicitValidReason)
 	{
-		$this->addressType = $addressType;
+		$this->apiExplicitValidReason = $apiExplicitValidReason;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTenantType()
+	{
+		return $this->tenantType;
+	}
+
+	/**
+	 * @param string $tenantType
+	 */
+	public function setTenantType($tenantType)
+	{
+		$this->tenantType = $tenantType;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getAddressMatchType()
+	{
+		return $this->addressMatchType;
+	}
+
+	/**
+	 * @param string $addressMatchType
+	 */
+	public function setAddressMatchType($addressMatchType)
+	{
+		$this->addressMatchType = $addressMatchType;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isPeInferredValid()
+	{
+		return $this->peInferredValid;
+	}
+
+	/**
+	 * @param bool $peInferredValid
+	 */
+	public function setPeInferredValid($peInferredValid)
+	{
+		$this->peInferredValid = $peInferredValid;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getPeInferredValidReason()
+	{
+		return $this->peInferredValidReason;
+	}
+
+	/**
+	 * @param string $peInferredValidReason
+	 */
+	public function setPeInferredValidReason($peInferredValidReason)
+	{
+		$this->peInferredValidReason = $peInferredValidReason;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getRawAttributes()
+	{
+		return $this->rawAttributes;
+	}
+
+	/**
+	 * @param array $rawAttributes
+	 */
+	public function setRawAttributes($rawAttributes)
+	{
+		$this->rawAttributes = $rawAttributes;
+	}
+
+	/**
+	 * @return AddressMetaNormalizedAttributes[]
+	 */
+	public function getNormalizedAttributes()
+	{
+		return $this->normalizedAttributes;
+	}
+
+	/**
+	 * @param AddressMetaNormalizedAttributes[] $normalizedAttributes
+	 */
+	public function setNormalizedAttributes($normalizedAttributes)
+	{
+		$this->normalizedAttributes = $normalizedAttributes;
 	}
 }

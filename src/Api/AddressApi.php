@@ -6,6 +6,7 @@ namespace Fulfillment\Postage\Api;
 
 use Fulfillment\Postage\Models\Request\Base\BaseAddressValidationRequest;
 use Fulfillment\Postage\Models\Response\AddressValidationResponse;
+use Fulfillment\Postage\Models\Response\ValidatedAddressResult;
 
 class AddressApi extends ApiRequestBase
 {
@@ -22,6 +23,6 @@ class AddressApi extends ApiRequestBase
 	{
 		$json = $this->apiClient->post('address/validate', $validationRequest, $queryString);
 
-		return ($this->jsonOnly ? $json : $this->jsonMapper->map($json, new AddressValidationResponse()));
+		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new ValidatedAddressResult()));
 	}
 }

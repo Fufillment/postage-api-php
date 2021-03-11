@@ -2,25 +2,97 @@
 
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
+use Fulfillment\Postage\Models\Response\AddressMetaNormalizedAttributes;
+
 interface AddressMeta
 {
 	/**
-	 * @return array
+	 * @return string
 	 */
-	public function getAttributes();
+	public function getConfidenceLevel();
 
 	/**
-	 * @param array $attributes
+	 * @param string $confidenceLevel
 	 */
-	public function setAttributes($attributes);
+	public function setConfidenceLevel($confidenceLevel);
+
+	/**
+	 * @return bool
+	 */
+	public function isApiExplicitValid();
+
+	/**
+	 * @param bool $apiExplicitValid
+	 */
+	public function setApiExplicitValid($apiExplicitValid);
 
 	/**
 	 * @return string
 	 */
-	public function getAddressType();
+	public function getApiExplicitValidReason();
 
 	/**
-	 * @param string $addressType
+	 * @param string $apiExplicitValidReason
 	 */
-	public function setAddressType($addressType);
+	public function setApiExplicitValidReason($apiExplicitValidReason);
+
+	/**
+	 * @return string
+	 */
+	public function getTenantType();
+
+	/**
+	 * @param string $tenantType
+	 */
+	public function setTenantType($tenantType);
+
+	/**
+	 * @return string
+	 */
+	public function getAddressMatchType();
+
+	/**
+	 * @param string $addressMatchType
+	 */
+	public function setAddressMatchType($addressMatchType);
+
+	/**
+	 * @return bool
+	 */
+	public function isPeInferredValid();
+
+	/**
+	 * @param bool $peInferredValid
+	 */
+	public function setPeInferredValid($peInferredValid);
+
+	/**
+	 * @return string
+	 */
+	public function getPeInferredValidReason();
+
+	/**
+	 * @param string $peInferredValidReason
+	 */
+	public function setPeInferredValidReason($peInferredValidReason);
+
+	/**
+	 * @return array
+	 */
+	public function getRawAttributes();
+
+	/**
+	 * @param array $rawAttributes
+	 */
+	public function setRawAttributes($rawAttributes);
+
+	/**
+	 * @return AddressMetaNormalizedAttributes[]
+	 */
+	public function getNormalizedAttributes();
+
+	/**
+	 * @param AddressMetaNormalizedAttributes[] $normalizedAttributes
+	 */
+	public function setNormalizedAttributes($normalizedAttributes);
 }
