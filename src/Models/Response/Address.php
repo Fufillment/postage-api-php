@@ -9,7 +9,6 @@ class Address implements AddressContract, \JsonSerializable {
 
 	use SimpleSerializable;
 
-
 	/**
 	 * @var int
 	 */
@@ -28,12 +27,12 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @var string
 	 */
-	protected $street1;
+	protected $address1;
 
 	/**
 	 * @var string
 	 */
-	protected $street2;
+	protected $address2;
 
 	/**
 	 * @var string
@@ -122,33 +121,33 @@ class Address implements AddressContract, \JsonSerializable {
 	/**
 	 * @return string
 	 */
-	public function getStreet1()
+	public function getAddress1()
 	{
-		return $this->street1;
+		return $this->address1;
 	}
 
 	/**
-	 * @param string $street1
+	 * @param string $address1
 	 */
-	public function setStreet1($street1)
+	public function setAddress1($address1)
 	{
-		$this->street1 = $street1;
+		$this->address1 = $address1;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getStreet2()
+	public function getAddress2()
 	{
-		return $this->street2;
+		return $this->address2;
 	}
 
 	/**
-	 * @param string $street2
+	 * @param string $address2
 	 */
-	public function setStreet2($street2)
+	public function setAddress2($address2)
 	{
-		$this->street2 = $street2;
+		$this->address2 = $address2;
 	}
 
 	/**
