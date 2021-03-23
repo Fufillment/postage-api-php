@@ -34,6 +34,26 @@ interface Shipment extends \JsonSerializable {
 	public function setToAddress($toAddress);
 
 	/**
+	 * @return Address
+	 */
+	public function getFromAddress();
+
+	/**
+	 * @param string $fromAddress
+	 */
+	public function setFromAddress($fromAddress);
+
+	/**
+	 * @return Address
+	 */
+	public function getReturnAddress();
+
+	/**
+	 * @param string $returnAddress
+	 */
+	public function setReturnAddress($returnAddress);
+
+	/**
 	 * @return Packaging
 	 */
 	public function getPackaging();

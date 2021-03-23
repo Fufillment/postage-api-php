@@ -27,6 +27,16 @@ abstract class BaseShipment implements ShipmentContract {
 	protected $toAddress;
 
 	/**
+	 * @var BaseAddress
+	 */
+	protected $fromAddress;
+
+	/**
+	 * @var BaseAddress
+	 */
+	protected $returnAddress;
+
+	/**
 	 * @var BasePackaging
 	 */
 	protected $packaging;
@@ -99,6 +109,38 @@ abstract class BaseShipment implements ShipmentContract {
 	public function setToAddress($toAddress)
 	{
 		$this->toAddress = $toAddress;
+	}
+
+	/**
+	 * @return BaseAddress
+	 */
+	public function getFromAddress()
+	{
+		return $this->fromAddress;
+	}
+
+	/**
+	 * @param $fromAddress
+	 */
+	public function setFromAddress($fromAddress)
+	{
+		$this->fromAddress = $fromAddress;
+	}
+
+	/**
+	 * @return BaseAddress
+	 */
+	public function getReturnAddress()
+	{
+		return $this->returnAddress;
+	}
+
+	/**
+	 * @param $returnAddress
+	 */
+	public function setReturnAddress($returnAddress)
+	{
+		$this->toAddress = $returnAddress;
 	}
 
 	/**
