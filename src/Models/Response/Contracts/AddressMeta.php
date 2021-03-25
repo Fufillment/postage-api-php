@@ -77,6 +77,16 @@ interface AddressMeta
 	public function setPeInferredValidReason($peInferredValidReason);
 
 	/**
+	 * @return string[]
+	 */
+	public function getPeValidationErrors();
+
+	/**
+	 * @param string[] $peValidationErrors
+	 */
+	public function setPeValidationErrors($peValidationErrors);
+
+	/**
 	 * @return array
 	 */
 	public function getRawAttributes();

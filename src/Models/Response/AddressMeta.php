@@ -45,6 +45,11 @@ class AddressMeta implements AddressMetaContract, \JsonSerializable
 	public $peInferredValidReason;
 
 	/**
+	 * @var string[]
+	 */
+	public $peValidationErrors;
+
+	/**
 	 * @var array
 	 */
 	public $rawAttributes;
@@ -164,6 +169,22 @@ class AddressMeta implements AddressMetaContract, \JsonSerializable
 	public function setPeInferredValidReason($peInferredValidReason)
 	{
 		$this->peInferredValidReason = $peInferredValidReason;
+	}
+
+	/**
+	 * @return string[]
+	 */
+	public function getPeValidationErrors()
+	{
+		return $this->peValidationErrors;
+	}
+
+	/**
+	 * @param string[] $peValidationErrors
+	 */
+	public function setPeValidationErrors($peValidationErrors)
+	{
+		$this->peValidationErrors = $peValidationErrors;
 	}
 
 	/**
