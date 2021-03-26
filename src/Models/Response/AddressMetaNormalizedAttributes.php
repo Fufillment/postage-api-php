@@ -17,7 +17,7 @@ class AddressMetaNormalizedAttributes implements AttrContract, \JsonSerializable
 	public $symbol;
 
 	/**
-	 * @var boolean
+	 * @var boolean|null
 	 */
 	public $error;
 
@@ -57,15 +57,20 @@ class AddressMetaNormalizedAttributes implements AttrContract, \JsonSerializable
 	 */
 	public function isError()
 	{
-		return $this->error;
+		return $this->error === null ? false : $this->error;
 	}
 
 	/**
-	 * @param bool $error
+	 * @param bool|null $error
 	 */
 	public function setError($error)
 	{
 		$this->error = $error;
+	}
+
+	public function getError()
+	{
+		return $this->error;
 	}
 
 	/**

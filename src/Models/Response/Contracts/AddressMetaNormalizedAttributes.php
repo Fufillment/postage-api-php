@@ -20,9 +20,14 @@ interface AddressMetaNormalizedAttributes
 	public function isError();
 
 	/**
-	 * @param bool $error
+	 * @param bool|null $error
 	 */
 	public function setError($error);
+
+	/**
+	 * @return bool|null
+	 */
+	public function getError();
 
 	/**
 	 * @return string
