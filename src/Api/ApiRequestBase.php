@@ -22,6 +22,7 @@ class ApiRequestBase {
 		$this->jsonOnly         = $jsonOnly;
 		$this->apiClient        = $apiClient;
 		$this->jsonMapper       = new \JsonMapper();
+		$this->jsonMapper->bStrictNullTypes = false;
 		$this->validateRequests = $validateRequests;
 	}
 

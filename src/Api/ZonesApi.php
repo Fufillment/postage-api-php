@@ -20,6 +20,6 @@ class ZonesApi extends ApiRequestBase {
 	{
 		$json = $this->apiClient->get("zones/domestic/usps", ['fromPostalCodes' => implode(',', $fromPostalCodes), 'toPostalCode' => $toPostalCode]);
 
-		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new ZonePostalCode()));
+		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], ZonePostalCode::class));
 	}
 }

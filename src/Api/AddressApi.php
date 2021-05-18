@@ -23,6 +23,6 @@ class AddressApi extends ApiRequestBase
 	{
 		$json = $this->apiClient->post('address/validate', $validationRequest, $queryString);
 
-		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], new ValidatedAddressResult()));
+		return ($this->jsonOnly ? $json : $this->jsonMapper->mapArray($json, [], ValidatedAddressResult::class));
 	}
 }
