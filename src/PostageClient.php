@@ -2,7 +2,7 @@
 
 namespace Fulfillment\Postage;
 
-use Dotenv;
+use Dotenv\Dotenv;
 use FoxxMD\Utilities\ArrayUtil;
 use Fulfillment\Api\Api;
 use Fulfillment\Api\Configuration\ApiConfiguration;
@@ -59,8 +59,9 @@ class PostageClient {
 				{
 					throw new \Exception('The provided directory location does not exist at ' . $config);
 				}
-				Dotenv::load($config);
-				Dotenv::required(['API_ENDPOINT']);
+                $dot = new Dotenv(realpath($config));
+                $dot->load();
+                $dot->required(['API_ENDPOINT']);
 
 			}
 			$username                = getenv('USERNAME') ?: null;
